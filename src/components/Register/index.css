@@ -1,0 +1,54 @@
+.register-container {
+  width: 100%;
+  padding: 10px;
+}
+.register-input-container{
+    display: flex;
+    flex-direction: column;
+    color:var(--theme-color );
+    gap: 3px;
+}
+
+.register-input-container >label {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.register-input-element {
+    padding: 8px;
+    outline: none;
+    border: 0;
+    background-color: #e2e2e2;
+    border-radius: 5px;
+  }
+
+  .register-card-container {
+    position: relative;
+    background-color: #ffffff40;
+    border: 2px solid #e2e2e2;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 18px;
+    padding: 0px 25px 10px;
+    margin:100px auto;
+
+  }
+  @media (max-width: 768px) {
+
+    .register-input-container >label{
+      font-size: 12px;
+    }
+  
+  }
+  
+  @media (max-width: 576px) {
+
+    .register-card-container{
+      padding: 0px 20px 25px ;
+    }
+     
+    }
+  
