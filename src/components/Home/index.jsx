@@ -1,5 +1,11 @@
+import CreditDebit from "../CreditDebit";
+
 const Home = () => {
-  return <p>hii</p>;
+  return (
+    <div>
+      <CreditDebit />
+    </div>
+  );
 };
 
 export default Home;

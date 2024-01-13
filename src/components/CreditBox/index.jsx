@@ -1,4 +1,4 @@
-import { BsCurrencyDollar } from "react-icons/bs";
+import { BsCurrencyRupee } from "react-icons/bs";
 
 import "./index.css";
 
@@ -11,7 +11,7 @@ const CreditBox = (props) => {
     <div className="credit-container">
       <div className="credit-amount-container">
         <h1 className="credit-amount-text">
-          <BsCurrencyDollar />
+          <BsCurrencyRupee />
           {sum}
         </h1>
         <p className="credit-text">Credit</p>

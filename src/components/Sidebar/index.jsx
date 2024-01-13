@@ -11,8 +11,7 @@ const Sidebar = () => {
   const location = useLocation();
   const { pathname } = location;
 
-  const isDashBoard =
-    pathname === "/home" ? "link-item active-item" : "link-item";
+  const isDashBoard = pathname === "/" ? "link-item active-item" : "link-item";
   const isTxn =
     pathname === "/transactions" ? "link-item active-item" : "link-item";
   const isProfile =
@@ -30,7 +29,7 @@ const Sidebar = () => {
         </Link>
       </div>
       <ul className="link-li-container">
-        <Link to="/home" className={isDashBoard}>
+        <Link to="/" className={isDashBoard}>
           <li className="list-item">
             <HiHome size={25} /> Dashboard
           </li>

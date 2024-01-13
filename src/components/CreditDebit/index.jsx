@@ -24,14 +24,7 @@ class CreditDebit extends Component {
   };
 
   componentDidMount() {
-    const userCreds = Cookies.get("secret_token");
-
-    console.log(userCreds);
-
-    const parsedObject = JSON.parse(userCreds);
-
-    userCreds !== undefined &&
-      this.setState({ userCreds: parsedObject }, this.fetchCDData);
+    this.fetchCDData();
   }
 
   tryAgain = () => {
@@ -41,35 +34,33 @@ class CreditDebit extends Component {
   fetchCDData = async () => {
     this.setState({ status: creditDebitStatus.Loading });
 
-    // const { userCreds } = this.state;
+    let url =
+      "https://money-matters-99a1.onrender.com/credit-debit-transactions/";
 
-    // const { userId, isAdmin } = userCreds;
-
-    // const role = isAdmin ? "admin" : "user";
-
-    const ReqUrl =
-      "https://bursting-gelding-24.hasura.app/api/rest/credit-debit-totals";
-
-    const options = {
+    let options = {
       method: "GET",
       headers: {
-        "content-type": "application/json",
-        "x-hasura-admin-secret":
-          "g08A3qQy00y8yFDq3y6N1ZQnhOPOa4msdie5EtKS1hFStar01JzPKrtKEzYY2BtF",
-        "x-hasura-role": "user",
-        "x-hasura-user-id": 1,
+        Accept: "*/*",
+        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJlZGR5MTIzIiwiaWQiOiI2NTlhZDY1OWQ5OWU1MzRmZDJhYzBlMjYiLCJuYW1lIjoiSGFyc2hpdGgiLCJlbWFpbCI6ImFAZ21haWwuY29tIiwiaWF0IjoxNzA0ODIwNjM3fQ.QkSTFKtacd4vM4H-2ERGSRJ95j2Y6hMUiU7BRne4JZo",
+        "Content-Type": "application/json",
       },
     };
 
     try {
-      const response = await fetch(ReqUrl, options);
+      const response = await fetch(url, options);
+      console.log(response.ok);
 
       const result = await response.json();
+      console.log(result);
 
-      const data = result.totals_credit_debit_transactions;
+      const data = result;
 
-      const creditAmount = data.find((each) => each.type === "credit");
-      const debitAmount = data.find((each) => each.type === "debit");
+      console.log(data);
+
+      const creditAmount = data.find((each) => each._id === "credit");
+      const debitAmount = data.find((each) => each._id === "debit");
 
       this.setState({
         status: creditDebitStatus.Succcess,
