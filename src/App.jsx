@@ -3,14 +3,17 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Login from "./components/Login";
 import Register from "./components/Register";
-// import Accounts from "./components/Home";
+import Home from "./components/Home";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
     <Routes>
       <Route exact path="/login" element={<Login />} />
       <Route exact path="/register" element={<Register />} />
-      {/* <Route exact path="/home" element={<Accounts />} /> */}
+      <Route element={<PrivateRoute />}>
+        <Route path="/home" element={<Home />} />
+      </Route>
     </Routes>
   );
 }

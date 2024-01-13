@@ -41,11 +41,11 @@ class CreditDebit extends Component {
   fetchCDData = async () => {
     this.setState({ status: creditDebitStatus.Loading });
 
-    const { userCreds } = this.state;
+    // const { userCreds } = this.state;
 
-    const { userId, isAdmin } = userCreds;
+    // const { userId, isAdmin } = userCreds;
 
-    const role = isAdmin ? "admin" : "user";
+    // const role = isAdmin ? "admin" : "user";
 
     const ReqUrl =
       "https://bursting-gelding-24.hasura.app/api/rest/credit-debit-totals";
@@ -56,8 +56,8 @@ class CreditDebit extends Component {
         "content-type": "application/json",
         "x-hasura-admin-secret":
           "g08A3qQy00y8yFDq3y6N1ZQnhOPOa4msdie5EtKS1hFStar01JzPKrtKEzYY2BtF",
-        "x-hasura-role": role,
-        "x-hasura-user-id": `${userId}`,
+        "x-hasura-role": "user",
+        "x-hasura-user-id": 1,
       },
     };
 

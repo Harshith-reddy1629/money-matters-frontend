@@ -89,7 +89,7 @@ class Register extends Component {
               <input
                 className="register-input-element"
                 type="password"
-                placeholder="Password"
+                placeholder="Confirm Password"
               />
             </div>
             <div className="submit-btn-container">

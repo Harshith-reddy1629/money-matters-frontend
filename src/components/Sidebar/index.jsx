@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 
-import ProfileBox from "../ProfileBox";
+// import ProfileBox from "../ProfileBox";
 
 import { HiHome } from "react-icons/hi";
 import { FaUser } from "react-icons/fa";
@@ -11,7 +11,8 @@ const Sidebar = () => {
   const location = useLocation();
   const { pathname } = location;
 
-  const isDashBoard = pathname === "/" ? "link-item active-item" : "link-item";
+  const isDashBoard =
+    pathname === "/home" ? "link-item active-item" : "link-item";
   const isTxn =
     pathname === "/transactions" ? "link-item active-item" : "link-item";
   const isProfile =
@@ -29,7 +30,7 @@ const Sidebar = () => {
         </Link>
       </div>
       <ul className="link-li-container">
-        <Link to="/" className={isDashBoard}>
+        <Link to="/home" className={isDashBoard}>
           <li className="list-item">
             <HiHome size={25} /> Dashboard
           </li>
@@ -51,7 +52,7 @@ const Sidebar = () => {
         </Link>
       </ul>
 
-      <ProfileBox />
+      {/* <ProfileBox /> */}
     </div>
   );
 };
