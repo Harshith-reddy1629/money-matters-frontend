@@ -2,14 +2,12 @@
 import { Navigate, Outlet } from "react-router-dom";
 import Sidebar from "../Sidebar";
 import Navbar from "../Navbar";
-// import Cookies from "js-cookie";
+import Cookies from "js-cookie";
 
 function PrivateRoute() {
-  // const isAuth = Cookies.get("jwt_token")
+  const isAuth = !Cookies.get("jwt_token");
 
-  const K = true;
-
-  if (K) {
+  if (!isAuth) {
     return (
       <div style={{ display: "flex" }}>
         <Sidebar />
