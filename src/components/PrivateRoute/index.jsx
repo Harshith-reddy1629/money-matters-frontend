@@ -5,10 +5,9 @@ import Navbar from "../Navbar";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import TransactionsContext from "../../context/TransactionsContext";
-import {
-  NotificationContainer,
-  NotificationManager,
-} from "react-notifications";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function PrivateRoute() {
   const isAuth = !Cookies.get("jwt_token");
@@ -53,6 +52,7 @@ function PrivateRoute() {
   };
 
   const addTxn = async (txnValues) => {
+    console.log("first");
     let url = "https://money-matters-99a1.onrender.com/add-txn/";
 
     const jwtToken = Cookies.get("jwt_token");
@@ -74,12 +74,13 @@ function PrivateRoute() {
       const result = await response.json();
 
       if (response.ok) {
-        NotificationManager.success("Transaction added successfully", "ADDED");
+        console.log(result);
+        toast.success("Transaction Added");
       } else {
-        NotificationManager.error("Error");
+        toast.error("Error");
       }
     } catch (error) {
-      NotificationManager.error("Error");
+      toast.error("error");
     }
   };
 
@@ -89,17 +90,19 @@ function PrivateRoute() {
 
   if (!isAuth) {
     return (
-      <TransactionsContext.Provider value={{}}>
+      <TransactionsContext.Provider
+        value={{ TpageStatus, addTxn, AllTransactions }}
+      >
         <div
           style={{
             display: "flex",
           }}
         >
           <Sidebar />
+          <ToastContainer />
           <div style={{ flexGrow: 1 }}>
             <Navbar />
             <Outlet />
-            <NotificationContainer />
           </div>
         </div>
       </TransactionsContext.Provider>

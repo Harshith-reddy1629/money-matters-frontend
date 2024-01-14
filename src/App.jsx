@@ -1,6 +1,5 @@
 // import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Home from "./components/Home";
@@ -8,6 +7,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import TransactionRoute from "./components/TranscationRoute";
 import Profile from "./components/Profile";
 import AuthUser from "./components/AuthUser";
+import "./App.css";
 
 function App() {
   return (
