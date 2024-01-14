@@ -34,6 +34,8 @@ class CreditDebit extends Component {
   fetchCDData = async () => {
     this.setState({ status: creditDebitStatus.Loading });
 
+    const jwtToken = Cookies.get("jwt_token");
+
     let url =
       "https://money-matters-99a1.onrender.com/credit-debit-transactions/";
 
@@ -41,9 +43,7 @@ class CreditDebit extends Component {
       method: "GET",
       headers: {
         Accept: "*/*",
-        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJlZGR5MTIzIiwiaWQiOiI2NTlhZDY1OWQ5OWU1MzRmZDJhYzBlMjYiLCJuYW1lIjoiSGFyc2hpdGgiLCJlbWFpbCI6ImFAZ21haWwuY29tIiwiaWF0IjoxNzA0ODIwNjM3fQ.QkSTFKtacd4vM4H-2ERGSRJ95j2Y6hMUiU7BRne4JZo",
+        Authorization: `Bearer ${jwtToken}`,
         "Content-Type": "application/json",
       },
     };

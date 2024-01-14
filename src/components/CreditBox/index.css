@@ -1,16 +1,10 @@
 .credit-container {
   background-color: #fff;
   border-radius: 12px;
-  margin: 20px;
-
-  margin-bottom: 0;
-  padding: 20px;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 0%;
   display: flex;
   flex-grow: 1;
   justify-content: space-around;
+  padding: 1rem 1.5rem 0px;
 }
 
 .credit-amount-container {
@@ -25,11 +19,8 @@
 }
 @media (max-width: 575px) {
   .credit-container {
-    margin-left: 10px;
-    padding-left: 20px;
   }
   .credit-image {
-    height: 80px;
   }
 }
 .credit-amount-text {

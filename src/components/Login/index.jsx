@@ -1,19 +1,12 @@
 import { useState } from "react";
 
-// import { Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-// import Cookies from "js-cookie";
-
-// import {
-//   NotificationContainer,
-//   NotificationManager,
-// } from "react-notifications";
-
-import "./index.css";
 import { Formik } from "formik";
 
-import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+
+import "./index.css";
 
 const Login = () => {
   const [errorMessage, setError] = useState("");
@@ -21,11 +14,11 @@ const Login = () => {
   const navigate = useNavigate();
 
   const onSuccess = (result) => {
-    console.log(result);
     Cookies.set("jwt_token", result.jwtToken, {
       expires: 30,
       path: "/",
     });
+
     navigate("/", { replace: true });
   };
 
@@ -56,7 +49,7 @@ const Login = () => {
         onFailed(result);
       }
     } catch (error) {
-      console.log("first1");
+      setError("Something went wrong");
     }
   };
 
@@ -70,7 +63,7 @@ const Login = () => {
       <div className="login-card-container">
         <div className="logger-btn-container">
           <Link to="/login" className="logger-btn active-logger">
-            User
+            Login
           </Link>
           <Link to="/register" className="logger-btn inactive-logger">
             Register
@@ -94,16 +87,20 @@ const Login = () => {
             handleChange,
             handleBlur,
             handleSubmit,
-            isSubmitting,
             /* and other goodies */
           }) => (
-            <form onSubmit={handleSubmit} className="login-form">
+            <form
+              onChange={handleChange}
+              onBlur={handleBlur}
+              onSubmit={handleSubmit}
+              onFocus={() => setError("")}
+              className="login-form"
+            >
               <h1 className="login-heading">Login</h1>
               <div className="login-input-container">
                 <label>USERNAME</label>
                 <input
                   className="login-input-element"
-                  onChange={handleChange}
                   type="text"
                   placeholder="Enter username"
                   id="username"
@@ -119,16 +116,16 @@ const Login = () => {
                   type="password"
                   placeholder="Password"
                   id="password"
-                  onChange={handleChange}
                 />
                 <p className="error-text">
                   {errors.password && touched.password && errors.password}
                 </p>
               </div>
               <div className="submit-btn-container">
-                <button type="submit" className="submit-btn">
+                <button type="submit" id="login" className="submit-btn">
                   Log in
                 </button>
+                <p className="error-text">{errorMessage}</p>
               </div>
             </form>
           )}

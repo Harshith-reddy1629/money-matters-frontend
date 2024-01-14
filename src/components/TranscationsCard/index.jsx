@@ -1,5 +1,5 @@
-import "./index.css";
 import TxnList from "../TxnList";
+import "./index.css";
 
 const TransactionsCard = () => {
   return (
