@@ -2,74 +2,49 @@ import {
   BsCurrencyDollar,
   BsArrowUpCircle,
   BsArrowDownCircle,
+  BsCurrencyRupee,
 } from "react-icons/bs";
 
-import Cookies from "js-cookie";
-
-import UpdateTxnPopup from "../UpdateTxnPopup";
-
-import "./index.css";
-import DeletePopup from "../DeletePopUp";
 import DateConverter from "../DateConverter";
-import UserList from "../UserList";
+import UpdateTxnPopup from "../UpdateTxnPopup";
+import "./index.css";
 
 const TransactionsRouteListItems = (props) => {
   const { item } = props;
 
-  const { id, transactionName, type, category, date, amount, userId } = item;
+  const { txnName, Category, txnDate, Amount, TxnType } = item;
 
-  const UserO = UserList.find((each) => each.id === userId);
-
-  const usersName = UserO.name;
-
-  const reqItem =
-    type === "credit" ? (
-      <BsArrowUpCircle size={25} />
-    ) : (
-      <BsArrowDownCircle size={25} />
-    );
-
-  const classOfReqType =
-    type === "credit" ? "credit-amount-text" : "debit-amount-text";
-  const ReqSign = type === "credit" ? "+" : "-";
-
-  const formattedDate = DateConverter(date);
-
-  const userCreds = Cookies.get("secret_token");
-
-  const parsedObject = JSON.parse(userCreds);
-
-  const { isAdmin } = parsedObject;
-
-  const admin = !isAdmin;
+  const D = DateConverter(txnDate);
 
   return (
-    <tr className="transaction-item-row">
-      {isAdmin && (
-        <td className="txnname">
-          {reqItem} {usersName}
-        </td>
-      )}
-      <td className={!isAdmin && "txnname"}>
-        {!isAdmin && reqItem} {transactionName}
+    <tr style={{ color: "#505887" }}>
+      <td
+        style={{
+          padding: "1rem",
+          width: "35%",
+          minWidth: "180px",
+          display: "flex",
+          alignItems: "center",
+          gap: "14px",
+        }}
+      >
+        {TxnType === "credit" ? (
+          <BsArrowUpCircle size={25} color="#16dbaa" />
+        ) : (
+          <BsArrowDownCircle size={25} color="#fe5c73" />
+        )}{" "}
+        {txnName}
       </td>
-      <td>{category}</td>
-      <td>{formattedDate}</td>
-      <td className={classOfReqType}>
-        {ReqSign}
-        <BsCurrencyDollar />
-        {amount}
+      <td>{Category}</td>
+      <td>{D}</td>
+      <td style={{ color: `${TxnType === "credit" ? "#16dbaa" : "#fe5c73"}` }}>
+        <BsCurrencyRupee /> {Amount}
       </td>
-      {admin && (
-        <td>
-          <UpdateTxnPopup item={item} />
-        </td>
-      )}
-      {admin && (
-        <td>
-          <DeletePopup id={id} />
-        </td>
-      )}
+      <td>
+        <UpdateTxnPopup item={item} />
+      </td>
+
+      <td>{/* <DeletePopup id={id} /> */}</td>
     </tr>
   );
 };

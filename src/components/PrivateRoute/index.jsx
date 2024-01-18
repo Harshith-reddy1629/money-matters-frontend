@@ -40,28 +40,32 @@ function PrivateRoute() {
       const result = await response.json();
 
       if (response.ok) {
-        setAllTxns(result);
+        const sortedData = result.sort(
+          (a, b) => new Date(a.txnDate) - new Date(b.txnDate)
+        );
+        setAllTxns(sortedData.reverse());
       } else {
         setTPageStatus("Failed");
       }
     } catch (error) {
       setTPageStatus("Failed");
     }
-
-    fetch(url, options);
   };
 
-  const addTxn = async (txnValues) => {
-    console.log("first");
-    let url = "https://money-matters-99a1.onrender.com/add-txn/";
+  const updateTxn = async (txnValues) => {
+    const { _id } = txnValues;
+
+    console.log(_id);
+
+    let url = `https://money-matters-99a1.onrender.com/update-txn/${_id}/`;
 
     const jwtToken = Cookies.get("jwt_token");
+    console.log(txnValues);
 
     let options = {
-      method: "POST",
+      method: "PUT",
       headers: {
         Accept: "*/*",
-        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
         Authorization: `Bearer ${jwtToken}`,
         "Content-Type": "application/json",
       },
@@ -74,8 +78,39 @@ function PrivateRoute() {
       const result = await response.json();
 
       if (response.ok) {
-        console.log(result);
         toast.success("Transaction Added");
+        fetchTxns();
+      } else {
+        toast.error("Error");
+      }
+    } catch (error) {
+      toast.error("error");
+    }
+  };
+  const addTxn = async (txnValues) => {
+    let url = "https://money-matters-99a1.onrender.com/add-txn/";
+
+    const jwtToken = Cookies.get("jwt_token");
+    console.log(txnValues);
+
+    let options = {
+      method: "POST",
+      headers: {
+        Accept: "*/*",
+        Authorization: `Bearer ${jwtToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(txnValues),
+    };
+
+    try {
+      const response = await fetch(url, options);
+
+      const result = await response.json();
+
+      if (response.ok) {
+        toast.success("Transaction Added");
+        fetchTxns();
       } else {
         toast.error("Error");
       }
@@ -91,7 +126,7 @@ function PrivateRoute() {
   if (!isAuth) {
     return (
       <TransactionsContext.Provider
-        value={{ TpageStatus, addTxn, AllTransactions }}
+        value={{ TpageStatus, addTxn, AllTransactions, updateTxn }}
       >
         <div
           style={{

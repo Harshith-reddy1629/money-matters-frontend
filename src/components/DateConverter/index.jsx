@@ -14,14 +14,14 @@ const Months = [
 ];
 
 const DateConverter = (dategiven) => {
-  const d = new Date(dategiven);
+  const K = new Date(dategiven);
 
-  const date = d.getDate();
-  const month = Months[d.getMonth()];
+  const date = dategiven.slice(8, 10);
+  const month = Months[parseInt(dategiven.slice(5, 7)) - 1];
 
-  const hr = d.getHours();
+  const hr = dategiven.slice(11, 13);
 
-  const mins = d.getMinutes();
+  const mins = dategiven.slice(14, 16);
 
   const ampm = hr > 12 ? "PM" : "AM";
 

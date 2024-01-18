@@ -1,25 +1,32 @@
-// import { useContext } from "react";
-// import TransactionsContext from "../../context/TransactionsContext";
+import { useContext } from "react";
+import TransactionsContext from "../../context/TransactionsContext";
+import TransactionsRouteListItems from "../TransactionsRouteListItems";
 import "./index.css";
 
 const TransactionsCard = () => {
-  // const T = useContext(TransactionsContext);
+  const T = useContext(TransactionsContext);
 
-  // const { addTxn } = T;
+  const { TpageStatus, AllTransactions } = T;
 
-  // const Ad = () => {
-  //   const V = {
-  //     txnName: "f",
-  //     TxnType: "credit",
-  //     Amount: 1200,
-  //     Category: "food",
-  //   };
-  //   addTxn(V);
-  // };
   return (
     <div className="last-txn-card">
       <h1 className="last-txn">Last Transactions</h1>
-      {/* <button onClick={Ad}>ADD</button> */}
+      <div>
+        <table
+          style={{
+            width: "100%",
+            backgroundColor: "#fff",
+            borderRadius: "18px",
+            padding: "12px",
+          }}
+        >
+          <tbody>
+            {AllTransactions.slice(0, 3).map((each) => (
+              <TransactionsRouteListItems item={each} key={each._id} />
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

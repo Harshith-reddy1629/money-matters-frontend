@@ -1,15 +1,13 @@
 .last-txn-card {
-  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 .last-txn {
   font-size: 26px;
-  margin-left: 10px;
-  padding: 0;
-  margin-bottom: 0;
 }
 
 @media (max-width: 575px) {
   .last-txn-card {
-    padding: 5px;
   }
 }

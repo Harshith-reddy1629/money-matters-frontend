@@ -50,14 +50,10 @@ class CreditDebit extends Component {
 
     try {
       const response = await fetch(url, options);
-      console.log(response.ok);
 
       const result = await response.json();
-      console.log(result);
 
       const data = result;
-
-      console.log(data);
 
       const creditAmount = data.find((each) => each._id === "credit");
       const debitAmount = data.find((each) => each._id === "debit");

@@ -1,0 +1,5 @@
+.txn-route{
+    padding: 1rem;
+    height: calc(100dvh - 60px);
+    overflow-y: auto;
+}

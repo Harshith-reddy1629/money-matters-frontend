@@ -9,6 +9,7 @@
   align-items: center;
   border-bottom: 1px solid #e2e2e2;
   color: #343c6a;
+  height: 60px;
 }
 
 @media (max-width: 575px) {
