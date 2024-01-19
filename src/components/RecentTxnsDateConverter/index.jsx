@@ -26,17 +26,18 @@ const GetReqFormat = (sevenDaysTxns) => {
   ];
 
   const GivenData = sevenDaysTxns;
-
+  console.log(GivenData);
   for (let item of GivenData) {
-    const { date, sum, type } = item;
+    console.log("item", item);
+    const { txnDate, Amount, TxnType } = item;
 
-    const dateOfTxn = new Date(date);
+    const dateOfTxn = new Date(txnDate.slice(0, -1));
 
     const dayOfTxn = WeekDays[dateOfTxn.getDay()];
 
     const modified = sevenWeeksData.map((each) => {
       if (dayOfTxn === each.day) {
-        each[type] += sum;
+        each[TxnType] += Amount;
 
         return each;
       }

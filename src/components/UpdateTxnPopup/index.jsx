@@ -44,7 +44,7 @@ const UpdateTxnPopup = (props) => {
                 TxnType,
                 Category,
                 Amount,
-                txnDate: "",
+                txnDate,
 
                 //                 {
                 //   "txnName": "2",
@@ -167,6 +167,7 @@ const UpdateTxnPopup = (props) => {
                       type="datetime-local"
                       placeholder="Enter Name"
                       className="add-txn-input"
+                      defaultValue={txnDate.slice(0, -1)}
                     />
                     <p className="error-text">
                       {errors.txnDate && touched.txnDate && errors.txnDate}

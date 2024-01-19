@@ -1,3 +1,4 @@
+import ChartCard from "../ChartCard";
 import CreditDebit from "../CreditDebit";
 import TransactionsCard from "../TranscationsCard";
 
@@ -9,6 +10,8 @@ const Home = () => {
       <CreditDebit />
 
       <TransactionsCard />
+
+      <ChartCard />
     </div>
   );
 };

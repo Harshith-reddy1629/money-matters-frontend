@@ -13,13 +13,46 @@ function PrivateRoute() {
   const isAuth = !Cookies.get("jwt_token");
 
   const [TpageStatus, setTPageStatus] = useState("Loading");
+  const [sevenDaysTxnStatus, setSevenDaysTxnStatus] = useState("Loading");
   const [PpageStatus, setPpageStatus] = useState("Loading");
   const [AllTransactions, setAllTxns] = useState([]);
   const [userDetails, setUserDetails] = useState([]);
+  const [sevenDaysTxn, setSevenDaysTxn] = useState([]);
 
   // const fetchUserDetails = async ()=>{
 
   // }
+
+  const fetchSevenDaysTxns = async () => {
+    console.log("first");
+    let url = "https://money-matters-99a1.onrender.com/seven-days-txns/";
+
+    const jwtToken = Cookies.get("jwt_token");
+
+    let options = {
+      method: "GET",
+      headers: {
+        Accept: "*/*",
+        Authorization: `Bearer ${jwtToken}`,
+      },
+    };
+
+    try {
+      const response = await fetch(url, options);
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSevenDaysTxn(result);
+        setSevenDaysTxnStatus("Success");
+        console.log(result);
+      } else {
+        setSevenDaysTxnStatus("Failed");
+      }
+    } catch (error) {
+      setSevenDaysTxnStatus("Failed");
+    }
+  };
 
   const fetchTxns = async () => {
     let url = "https://money-matters-99a1.onrender.com/all-transactions/";
@@ -121,12 +154,20 @@ function PrivateRoute() {
 
   useEffect(() => {
     fetchTxns();
+    fetchSevenDaysTxns();
   }, []);
 
   if (!isAuth) {
     return (
       <TransactionsContext.Provider
-        value={{ TpageStatus, addTxn, AllTransactions, updateTxn }}
+        value={{
+          TpageStatus,
+          addTxn,
+          AllTransactions,
+          updateTxn,
+          sevenDaysTxn,
+          sevenDaysTxnStatus,
+        }}
       >
         <div
           style={{
