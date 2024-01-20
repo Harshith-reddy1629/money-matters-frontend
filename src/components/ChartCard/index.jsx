@@ -37,6 +37,7 @@ const ChartCard = () => {
     <ResponsiveContainer
       className="responsive-container"
       width="100%"
+      minWidth={600}
       height={400}
     >
       <BarChart
@@ -45,6 +46,7 @@ const ChartCard = () => {
         margin={{
           top: 5,
         }}
+        barSize={45}
       >
         <XAxis
           dataKey="day"
@@ -68,20 +70,8 @@ const ChartCard = () => {
           }}
         />
         <Tooltip />
-        <Bar
-          dataKey="debit"
-          radius={8}
-          name="Debit"
-          fill="#1f77b4"
-          barSize="10%"
-        />
-        <Bar
-          radius={8}
-          dataKey="credit"
-          name="Credit"
-          fill="#fd7f0e"
-          barSize="10%"
-        />
+        <Bar dataKey="debit" radius={8} name="Debit" fill="#1f77b4" />
+        <Bar radius={8} dataKey="credit" name="Credit" fill="#fd7f0e" />
       </BarChart>
     </ResponsiveContainer>
   );

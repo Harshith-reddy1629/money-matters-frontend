@@ -77,6 +77,7 @@ function PrivateRoute() {
           (a, b) => new Date(a.txnDate) - new Date(b.txnDate)
         );
         setAllTxns(sortedData.reverse());
+        setTPageStatus("Success");
       } else {
         setTPageStatus("Failed");
       }

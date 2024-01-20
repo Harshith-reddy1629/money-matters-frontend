@@ -24,6 +24,17 @@ function TransactionRoute() {
           padding: "12px",
         }}
       >
+        <thead>
+          <tr style={{ color: "#252525" }}>
+            <th style={{ textAlign: "start", padding: "12px" }}>
+              Transaction Name
+            </th>
+            <th style={{ textAlign: "start" }}>Type</th>
+            <th style={{ textAlign: "start" }}>Date</th>
+            <th style={{ textAlign: "start" }}> Amount</th>
+            <th style={{ textAlign: "start" }}>Actions</th>
+          </tr>
+        </thead>
         <tbody>
           {AllTransactions.map((each) => (
             <TransactionsRouteListItems item={each} key={each._id} />
