@@ -86,15 +86,44 @@ function PrivateRoute() {
     }
   };
 
+  const deleteTxn = async (uid) => {
+    // /delete-txn/:id
+
+    let url = `https://money-matters-99a1.onrender.com/delete-txn/${uid}/`;
+
+    const jwtToken = Cookies.get("jwt_token");
+
+    let options = {
+      method: "DELETE",
+      headers: {
+        Accept: "*/*",
+        Authorization: `Bearer ${jwtToken}`,
+        "Content-Type": "application/json",
+      },
+    };
+
+    try {
+      const response = await fetch(url, options);
+
+      const result = await response.json();
+
+      if (response.ok) {
+        toast.success("Deleted ");
+        fetchTxns();
+      } else {
+        toast.error("Error");
+      }
+    } catch (error) {
+      toast.error("error");
+    }
+  };
+
   const updateTxn = async (txnValues) => {
     const { _id } = txnValues;
-
-    console.log(_id);
 
     let url = `https://money-matters-99a1.onrender.com/update-txn/${_id}/`;
 
     const jwtToken = Cookies.get("jwt_token");
-    console.log(txnValues);
 
     let options = {
       method: "PUT",
@@ -168,6 +197,7 @@ function PrivateRoute() {
           updateTxn,
           sevenDaysTxn,
           sevenDaysTxnStatus,
+          deleteTxn,
         }}
       >
         <div

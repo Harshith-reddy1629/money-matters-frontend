@@ -28,7 +28,8 @@ const TransactionsCard = () => {
             <th style={{ textAlign: "start" }}>Type</th>
             <th style={{ textAlign: "start" }}>Date</th>
             <th style={{ textAlign: "start" }}> Amount</th>
-            <th style={{ textAlign: "start" }}>Actions</th>
+            <th style={{ textAlign: "start" }}>Update</th>
+            <th style={{ textAlign: "start" }}>Delete</th>
           </tr>
         </thead>
         <tbody>

@@ -8,11 +8,12 @@ import {
 import DateConverter from "../DateConverter";
 import UpdateTxnPopup from "../UpdateTxnPopup";
 import "./index.css";
+import DeletePopup from "../DeletePopUp";
 
 const TransactionsRouteListItems = (props) => {
   const { item } = props;
 
-  const { txnName, Category, txnDate, Amount, TxnType } = item;
+  const { _id, txnName, Category, txnDate, Amount, TxnType } = item;
 
   const D = DateConverter(txnDate);
 
@@ -42,6 +43,9 @@ const TransactionsRouteListItems = (props) => {
       </td>
       <td>
         <UpdateTxnPopup item={item} />
+      </td>
+      <td>
+        <DeletePopup id={_id} />
       </td>
 
       <td>{/* <DeletePopup id={id} /> */}</td>
