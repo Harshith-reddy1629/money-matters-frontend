@@ -16,11 +16,12 @@ align-items: center;
 
 .user-profile {
   width: 100%;
-  padding: 10px 6px ;
+  padding: 10px ;
+  padding-bottom: 14px;
   position: absolute;
   bottom: 0%;
 
-
+border-top: 1px solid #ccc;
  
 }
 
@@ -47,4 +48,11 @@ align-items: center;
   text-overflow: ellipsis;
   white-space: nowrap;
 
+}
+
+@media (max-width:768px) {
+  .user-profile{position: relative;
+  width:fit-content;}
+  .profile-box{display: none;padding: 6px;}
+  
 }

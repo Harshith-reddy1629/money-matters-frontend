@@ -1,0 +1,22 @@
+.responsive-container{ 
+    display: none;
+}
+
+.responsive-container-desk{
+
+}
+.seven-txt{
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+@media (max-width:768px) {
+    .responsive-container{
+        display: block;
+    }
+    .responsive-container-desk{
+        display: none;
+    }
+    .seven-txt{
+        font-size: 18px;
+    }
+}

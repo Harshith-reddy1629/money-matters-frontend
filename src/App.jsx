@@ -8,6 +8,7 @@ import TransactionRoute from "./components/TranscationRoute";
 import Profile from "./components/Profile";
 import AuthUser from "./components/AuthUser";
 import "./App.css";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/transactions" element={<TransactionRoute />} />
         <Route path="/profile" element={<Profile />} />
       </Route>
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }

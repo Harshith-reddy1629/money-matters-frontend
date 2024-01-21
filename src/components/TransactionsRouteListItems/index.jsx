@@ -19,16 +19,7 @@ const TransactionsRouteListItems = (props) => {
 
   return (
     <tr style={{ color: "#505887" }}>
-      <td
-        style={{
-          padding: "1rem",
-          width: "35%",
-          minWidth: "180px",
-          display: "flex",
-          alignItems: "center",
-          gap: "14px",
-        }}
-      >
+      <td style={{ display: "flex", alignItems: "center" }}>
         {TxnType === "credit" ? (
           <BsArrowUpCircle size={25} color="#16dbaa" />
         ) : (
@@ -38,13 +29,17 @@ const TransactionsRouteListItems = (props) => {
       </td>
       <td>{Category}</td>
       <td>{D}</td>
-      <td style={{ color: `${TxnType === "credit" ? "#16dbaa" : "#fe5c73"}` }}>
+      <td
+        style={{
+          color: `${TxnType === "credit" ? "#16dbaa" : "#fe5c73"}`,
+        }}
+      >
         <BsCurrencyRupee /> {Amount}
       </td>
-      <td>
+      <td style={{}}>
         <UpdateTxnPopup item={item} />
       </td>
-      <td>
+      <td style={{}}>
         <DeletePopup id={_id} />
       </td>
     </tr>

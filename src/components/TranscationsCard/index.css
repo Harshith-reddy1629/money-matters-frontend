@@ -2,12 +2,27 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 100%;
 }
 .last-txn {
-  font-size: 26px;
+  font-size: 24px;
 }
 
 @media (max-width: 575px) {
   .last-txn-card {
   }
+}
+@media (max-width:768px) {
+
+.last-txn{
+  font-size: 18px;
+}
+
+}
+
+.txns-list-container-div{
+
+  width: 100%;
+
+  overflow-x: auto;
 }

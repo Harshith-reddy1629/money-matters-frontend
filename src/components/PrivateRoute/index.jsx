@@ -9,15 +9,19 @@ import TransactionsContext from "../../context/TransactionsContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import "./index.css";
+
 function PrivateRoute() {
   const isAuth = !Cookies.get("jwt_token");
 
   const [TpageStatus, setTPageStatus] = useState("Loading");
   const [sevenDaysTxnStatus, setSevenDaysTxnStatus] = useState("Loading");
   const [PpageStatus, setPpageStatus] = useState("Loading");
+  const [CDStatus, setCdStatus] = useState("Loading");
   const [AllTransactions, setAllTxns] = useState([]);
   const [userDetails, setUserDetails] = useState([]);
   const [sevenDaysTxn, setSevenDaysTxn] = useState([]);
+  const [CDData, setCDData] = useState([]);
 
   // const fetchUserDetails = async ()=>{
 
@@ -174,6 +178,45 @@ function PrivateRoute() {
       toast.error("error");
     }
   };
+
+  const fetchCDData = async () => {
+    const jwtToken = Cookies.get("jwt_token");
+
+    let url =
+      "https://money-matters-99a1.onrender.com/credit-debit-transactions/";
+
+    let options = {
+      method: "GET",
+      headers: {
+        Accept: "*/*",
+        Authorization: `Bearer ${jwtToken}`,
+        "Content-Type": "application/json",
+      },
+    };
+
+    try {
+      const response = await fetch(url, options);
+
+      const result = await response.json();
+
+      if (response.ok) {
+        const CreditAmount = result.find((each) => each._id === "credit") ?? {
+          sum: 0,
+        };
+        const debitAmount = result.find((each) => each._id === "debit") ?? {
+          sum: 0,
+        };
+
+        setCDData({ CreditAmount, debitAmount });
+        setCdStatus("Success");
+      } else {
+        setCdStatus("Failed");
+      }
+    } catch (error) {
+      setCdStatus("Failed");
+    }
+  };
+
   const addTxn = async (txnValues) => {
     let url = "https://money-matters-99a1.onrender.com/add-txn/";
 
@@ -209,6 +252,7 @@ function PrivateRoute() {
     fetchTxns();
     fetchSevenDaysTxns();
     fetchUser();
+    fetchCDData();
   }, []);
 
   if (!isAuth) {
@@ -216,6 +260,7 @@ function PrivateRoute() {
       <TransactionsContext.Provider
         value={{
           TpageStatus,
+          PpageStatus,
           addTxn,
           AllTransactions,
           updateTxn,
@@ -223,16 +268,14 @@ function PrivateRoute() {
           sevenDaysTxnStatus,
           deleteTxn,
           userDetails,
+          CDData,
+          CDStatus,
         }}
       >
-        <div
-          style={{
-            display: "flex",
-          }}
-        >
-          <Sidebar />
+        <div className="container">
           <ToastContainer />
-          <div style={{ flexGrow: 1 }}>
+          <Sidebar />
+          <div className="Route-con">
             <Navbar />
             <Outlet />
           </div>

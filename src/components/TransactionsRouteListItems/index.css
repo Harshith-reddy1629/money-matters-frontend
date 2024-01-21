@@ -37,3 +37,15 @@
   height: 50px;
   color: #16dbaa;
 }
+
+td:nth-child(1){
+
+  gap: 14px;
+  padding: 1rem;
+}
+
+@media (max-width:768px) {
+  td:nth-child(1){
+    padding: 12px;
+  }
+}

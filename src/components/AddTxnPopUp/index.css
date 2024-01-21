@@ -70,13 +70,13 @@
   border-radius: 6px;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 768px) {
   .add-txn-popup-container {
     padding: 8px;
   }
   
   .transaction-btn {
     border-radius: 4px;
-    background: #2d60ff;
+    padding:10px ;
   }
 }

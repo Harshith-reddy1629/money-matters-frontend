@@ -34,46 +34,88 @@ const ChartCard = () => {
   };
 
   return (
-    <ResponsiveContainer
-      className="responsive-container"
-      width="100%"
-      minWidth={600}
-      height={400}
-    >
-      <BarChart
-        className="bar"
-        data={inRequiredFormat}
-        margin={{
-          top: 5,
+    <div>
+      <h2 className="seven-txt">This Week Transactions Overview</h2>
+      <div
+        style={{
+          backgroundColor: "#fff",
+          paddingTop: "16px",
+          borderRadius: "15px",
         }}
-        barSize={45}
       >
-        <XAxis
-          dataKey="day"
-          tick={{
-            stroke: "gray",
-            strokeWidth: 1,
-          }}
-        />
+        <ResponsiveContainer
+          className="responsive-container-desk"
+          width="100%"
+          height={320}
+          // margin={0}
+        >
+          <BarChart
+            className="bar"
+            data={inRequiredFormat}
+            margin={{ top: 0, right: 10, left: 0, bottom: 0 }}
+            barSize={45}
+          >
+            <XAxis
+              dataKey="day"
+              tick={{
+                stroke: "gray",
+                strokeWidth: 1,
+                fontSize: "12px",
+              }}
+            />
 
-        <YAxis
-          tickFormatter={DataFormatter}
-          tick={{
-            stroke: "gray",
-            strokeWidth: 0,
-          }}
-        />
-        <Legend
-          wrapperStyle={{
-            padding: 20,
-            borderRadius: "15px",
-          }}
-        />
-        <Tooltip />
-        <Bar dataKey="debit" radius={8} name="Debit" fill="#1f77b4" />
-        <Bar radius={8} dataKey="credit" name="Credit" fill="#fd7f0e" />
-      </BarChart>
-    </ResponsiveContainer>
+            <YAxis
+              tickFormatter={DataFormatter}
+              tick={{
+                stroke: "gray",
+                strokeWidth: 0,
+                fontSize: "12px",
+              }}
+            />
+            <Legend margin={{ bottom: 10 }} wrapperStyle={{}} />
+            <Tooltip />
+            <Bar dataKey="debit" radius={8} name="Debit" fill="#1f77b4" />
+            <Bar radius={8} dataKey="credit" name="Credit" fill="#fd7f0e" />
+          </BarChart>
+        </ResponsiveContainer>
+        <ResponsiveContainer
+          className="responsive-container"
+          width="100%"
+          height={220}
+
+          // margin={0}
+        >
+          <BarChart
+            className="bar"
+            data={inRequiredFormat}
+            margin={{ top: 0, right: 10, left: 0, bottom: 0 }}
+            barSize={45}
+          >
+            <XAxis
+              dataKey="day"
+              tick={{
+                stroke: "gray",
+                strokeWidth: 1,
+                fontSize: "12px",
+              }}
+            />
+
+            <YAxis
+              tickFormatter={DataFormatter}
+              tick={{
+                stroke: "gray",
+                strokeWidth: 0,
+                fontSize: "12px",
+              }}
+            />
+            <Legend margin={{ bottom: 10 }} wrapperStyle={{}} />
+            <Tooltip />
+            <Bar dataKey="debit" radius={8} name="Debit" fill="#1f77b4" />
+            <Bar radius={8} dataKey="credit" name="Credit" fill="#fd7f0e" />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+    </div>
   );
 };
 
