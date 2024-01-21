@@ -6,6 +6,7 @@ import { HiHome } from "react-icons/hi";
 import { FaUser } from "react-icons/fa";
 
 import "./index.css";
+import ProfileBox from "../ProfileBox";
 
 const Sidebar = () => {
   const location = useLocation();
@@ -51,7 +52,7 @@ const Sidebar = () => {
         </Link>
       </ul>
 
-      {/* <ProfileBox /> */}
+      <ProfileBox />
     </div>
   );
 };

@@ -47,8 +47,6 @@ const TransactionsRouteListItems = (props) => {
       <td>
         <DeletePopup id={_id} />
       </td>
-
-      <td>{/* <DeletePopup id={id} /> */}</td>
     </tr>
   );
 };

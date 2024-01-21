@@ -24,7 +24,6 @@ function PrivateRoute() {
   // }
 
   const fetchSevenDaysTxns = async () => {
-    console.log("first");
     let url = "https://money-matters-99a1.onrender.com/seven-days-txns/";
 
     const jwtToken = Cookies.get("jwt_token");
@@ -45,7 +44,6 @@ function PrivateRoute() {
       if (response.ok) {
         setSevenDaysTxn(result);
         setSevenDaysTxnStatus("Success");
-        console.log(result);
       } else {
         setSevenDaysTxnStatus("Failed");
       }
@@ -87,8 +85,6 @@ function PrivateRoute() {
   };
 
   const deleteTxn = async (uid) => {
-    // /delete-txn/:id
-
     let url = `https://money-matters-99a1.onrender.com/delete-txn/${uid}/`;
 
     const jwtToken = Cookies.get("jwt_token");
@@ -115,6 +111,34 @@ function PrivateRoute() {
       }
     } catch (error) {
       toast.error("error");
+    }
+  };
+
+  const fetchUser = async () => {
+    let url = `https://money-matters-99a1.onrender.com/get-user-details`;
+
+    const jwtToken = Cookies.get("jwt_token");
+    let options = {
+      method: "GET",
+      headers: {
+        Accept: "*/*",
+        Authorization: `Bearer ${jwtToken}`,
+      },
+    };
+
+    try {
+      const response = await fetch(url, options);
+      const result = await response.json();
+
+      if (response.ok) {
+        setUserDetails(result);
+        console.log(result);
+        setPpageStatus("Success");
+      } else {
+        setPpageStatus("Failed");
+      }
+    } catch (error) {
+      setPpageStatus("Failed");
     }
   };
 
@@ -154,7 +178,6 @@ function PrivateRoute() {
     let url = "https://money-matters-99a1.onrender.com/add-txn/";
 
     const jwtToken = Cookies.get("jwt_token");
-    console.log(txnValues);
 
     let options = {
       method: "POST",
@@ -185,6 +208,7 @@ function PrivateRoute() {
   useEffect(() => {
     fetchTxns();
     fetchSevenDaysTxns();
+    fetchUser();
   }, []);
 
   if (!isAuth) {
@@ -198,6 +222,7 @@ function PrivateRoute() {
           sevenDaysTxn,
           sevenDaysTxnStatus,
           deleteTxn,
+          userDetails,
         }}
       >
         <div

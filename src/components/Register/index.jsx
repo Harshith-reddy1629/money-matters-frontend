@@ -14,7 +14,6 @@ const Register = () => {
   };
 
   const onFailed = (result) => {
-    console.log(result);
     setError(result.errMsg);
   };
 

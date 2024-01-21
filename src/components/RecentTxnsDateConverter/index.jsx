@@ -26,9 +26,7 @@ const GetReqFormat = (sevenDaysTxns) => {
   ];
 
   const GivenData = sevenDaysTxns;
-  console.log(GivenData);
   for (let item of GivenData) {
-    console.log("item", item);
     const { txnDate, Amount, TxnType } = item;
 
     const dateOfTxn = new Date(txnDate.slice(0, -1));

@@ -5,11 +5,14 @@ const TransactionsContext = createContext({
   PpageStatus: "",
   sevenDaysTxnStatus: "",
   AllTransactions: [],
+  userDetails: [],
+  sevenDaysTxn: [],
+  fetchTxns: () => {},
+  fetchSevenDaysTxns: () => {},
+  fetchUser: () => {},
   updateTxn: () => {},
   deleteTxn: () => {},
-  sevenDaysTxn: [],
   addTxn: () => {},
-  userDetails: [],
 });
 
 export default TransactionsContext;

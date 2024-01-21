@@ -87,7 +87,6 @@ const Login = () => {
             handleChange,
             handleBlur,
             handleSubmit,
-            /* and other goodies */
           }) => (
             <form
               onChange={handleChange}

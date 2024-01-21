@@ -11,9 +11,7 @@ const FailedView = (props) => {
   return (
     <div className="failed-container">
       <LuAlertTriangle size={35} />
-      <button className="failed-btn" type="reset" >
-        Try Again
-      </button>
+      <button className="failed-btn">Try Again</button>
     </div>
   );
 };
