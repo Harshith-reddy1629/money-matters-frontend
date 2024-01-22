@@ -21,6 +21,7 @@
   .credit-container {
   }
   .credit-image {
+    height: 80px;
   }
 }
 .credit-amount-text {
