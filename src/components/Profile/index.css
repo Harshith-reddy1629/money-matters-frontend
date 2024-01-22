@@ -1,6 +1,9 @@
 .profile-container {
   padding: 30px;
+  height: calc(100dvh - 60px);
+  overflow-y: auto;
 }
+
 
 .profile-card {
   background-color: #fff;
@@ -15,11 +18,20 @@
   width: 200px;
   border-radius: 100px;
 }
-
+@media (max-width:900px) {
+  .profile-container{
+    padding: 12px;
+  }
+  .profile-image{
+    width: 175px;
+    height: 175px;
+  }
+}
 .bio-container {
   list-style-type: none;
   flex-grow: 1;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
   justify-content: center;
   column-gap: 20px;
   row-gap: 10px;
@@ -29,7 +41,6 @@
 .user-bio-li-items {
   display: flex;
   flex-direction: column;
-  width: 45%;
 }
 
 .bio-labels {

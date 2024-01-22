@@ -13,7 +13,7 @@ import TransactionsContext from "../../context/TransactionsContext";
 import "./index.css";
 
 const CreditDebit = () => {
-  const { CDData, CDStatus } = useContext(TransactionsContext);
+  const { CDData, CDStatus, fetchCD } = useContext(TransactionsContext);
 
   const { CreditAmount, debitAmount } = CDData;
 
@@ -39,7 +39,7 @@ const CreditDebit = () => {
       return successView();
 
     case "Failed":
-      return failedView();
+      return <FailedView tryAgain={fetchCD} />;
 
     default:
       return null;
