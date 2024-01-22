@@ -17,8 +17,6 @@ const CreditDebit = () => {
 
   const { CreditAmount, debitAmount } = CDData;
 
-  console.log(CDData, CDStatus);
-
   const successView = () => {
     return (
       <div className="creditdebit-container">
@@ -32,7 +30,8 @@ const CreditDebit = () => {
     case "Loading":
       return (
         <div className="loader">
-          <LoaderView />
+          <LoaderView height="160px" />
+          <LoaderView height="160px" />
         </div>
       );
     case "Success":

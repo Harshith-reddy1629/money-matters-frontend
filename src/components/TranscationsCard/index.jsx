@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import TransactionsContext from "../../context/TransactionsContext";
 import TransactionsRouteListItems from "../TransactionsRouteListItems";
-import "./index.css";
 import LoaderView from "../LoaderView";
 import FailedView from "../FailedView";
 import EmptyView from "../EmptyView";
+import "./index.css";
 
 const TransactionsCard = () => {
   const T = useContext(TransactionsContext);
@@ -40,11 +40,7 @@ const TransactionsCard = () => {
   const displayView = () => {
     switch (TpageStatus) {
       case "Loading":
-        return (
-          <div style={{ height: "350px", width: "100%" }}>
-            <LoaderView />
-          </div>
-        );
+        return <LoaderView height="200px" />;
       case "Success":
         return SV();
       case "Failed":

@@ -3,7 +3,7 @@
 function Testing() {
   return (
     <div>
-      <p>Testing 123</p>
+      <p>Testing...</p>
     </div>
   );
 }

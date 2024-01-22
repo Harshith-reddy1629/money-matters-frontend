@@ -3,6 +3,7 @@ import { useContext } from "react";
 import TransactionsContext from "../../context/TransactionsContext";
 
 import "./index.css";
+import LoaderView from "../LoaderView";
 
 function Profile() {
   const { userDetails, PpageStatus } = useContext(TransactionsContext);
@@ -140,6 +141,136 @@ function Profile() {
                 value="Country"
                 onChange={() => {}}
               />
+            </li>
+          </ul>
+        </div>
+      )}
+      {PpageStatus === "Loading" && (
+        <div className="profile-card">
+          <div style={{ width: "200px" }}>
+            <LoaderView height="200px" />
+          </div>
+
+          <ul className="bio-container">
+            <li
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "6px",
+                marginBottom: "8px",
+              }}
+              className="user-bio-li-items"
+            >
+              <LoaderView height="14px" />
+              <LoaderView height="32px" />
+            </li>
+            <li
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "6px",
+                marginBottom: "8px",
+              }}
+              className="user-bio-li-items"
+            >
+              <LoaderView height="14px" />
+              <LoaderView height="32px" />
+            </li>
+            <li
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "6px",
+                marginBottom: "8px",
+              }}
+              className="user-bio-li-items"
+            >
+              <LoaderView height="14px" />
+              <LoaderView height="32px" />
+            </li>
+            <li
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "6px",
+                marginBottom: "8px",
+              }}
+              className="user-bio-li-items"
+            >
+              <LoaderView height="14px" />
+              <LoaderView height="32px" />
+            </li>
+            <li
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "6px",
+                marginBottom: "8px",
+              }}
+              className="user-bio-li-items"
+            >
+              <LoaderView height="14px" />
+              <LoaderView height="32px" />
+            </li>
+            <li
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "6px",
+                marginBottom: "8px",
+              }}
+              className="user-bio-li-items"
+            >
+              <LoaderView height="14px" />
+              <LoaderView height="32px" />
+            </li>
+            <li
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "6px",
+                marginBottom: "8px",
+              }}
+              className="user-bio-li-items"
+            >
+              <LoaderView height="14px" />
+              <LoaderView height="32px" />
+            </li>
+            <li
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "6px",
+                marginBottom: "8px",
+              }}
+              className="user-bio-li-items"
+            >
+              <LoaderView height="14px" />
+              <LoaderView height="32px" />
+            </li>
+            <li
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "6px",
+                marginBottom: "8px",
+              }}
+              className="user-bio-li-items"
+            >
+              <LoaderView height="14px" />
+              <LoaderView height="32px" />
+            </li>
+            <li
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "6px",
+                marginBottom: "8px",
+              }}
+              className="user-bio-li-items"
+            >
+              <LoaderView height="14px" />
+              <LoaderView height="32px" />
             </li>
           </ul>
         </div>

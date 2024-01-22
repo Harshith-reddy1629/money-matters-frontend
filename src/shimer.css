@@ -1,0 +1,10 @@
+.shimer{
+
+   width: 100%;
+    background: linear-gradient( 100deg , rgba(232,232,232,1)  20%,rgb(245, 245, 245) 50%, rgba(232,232,232,1)  60%);
+    /* background: linear-gradient( 135deg , #525252 25%,#f1f1f1 50% ,#525252  75%); */
+    background-size:1000px 1000px;
+    background-position:-500px 0%;
+    animation: shimer-effect 1.5s linear infinite forwards;
+    border-radius: 5px;
+}

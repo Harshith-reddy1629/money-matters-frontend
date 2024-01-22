@@ -110,6 +110,8 @@ function PrivateRoute() {
       if (response.ok) {
         toast.success("Deleted ");
         fetchTxns();
+        fetchCDData();
+        fetchSevenDaysTxns();
       } else {
         toast.error("Error");
       }
@@ -136,7 +138,6 @@ function PrivateRoute() {
 
       if (response.ok) {
         setUserDetails(result);
-        console.log(result);
         setPpageStatus("Success");
       } else {
         setPpageStatus("Failed");
@@ -171,6 +172,8 @@ function PrivateRoute() {
       if (response.ok) {
         toast.success("Transaction Added");
         fetchTxns();
+        fetchCDData();
+        fetchSevenDaysTxns();
       } else {
         toast.error("Error");
       }
@@ -240,6 +243,8 @@ function PrivateRoute() {
       if (response.ok) {
         toast.success("Transaction Added");
         fetchTxns();
+        fetchCDData();
+        fetchSevenDaysTxns();
       } else {
         toast.error("Error");
       }

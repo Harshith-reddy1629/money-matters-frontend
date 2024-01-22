@@ -1,0 +1,5 @@
+@keyframes shimer-effect {
+    100%{
+        background-position: 500px 0%;
+    }
+}

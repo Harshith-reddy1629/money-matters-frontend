@@ -9,13 +9,14 @@ import TransactionsContext from "../../context/TransactionsContext";
 import TransactionsRouteListItems from "../TransactionsRouteListItems";
 import "./index.css";
 import EmptyView from "../EmptyView";
+import LoaderView from "../LoaderView";
 
 function TransactionRoute() {
   const T = useContext(TransactionsContext);
 
   const { TpageStatus, AllTransactions } = T;
 
-  return (
+  const SV = () => (
     <div className="txn-route-container">
       {AllTransactions.length !== 0 ? (
         <table className="table">
@@ -40,6 +41,22 @@ function TransactionRoute() {
       )}
     </div>
   );
+
+  switch (TpageStatus) {
+    case "Loading":
+      return (
+        <div style={{ padding: "15px" }}>
+          <LoaderView height="280px" />;
+        </div>
+      );
+    case "Success":
+      return SV();
+    case "Failed":
+      return FailedView();
+
+    default:
+      return null;
+  }
 }
 
 export default TransactionRoute;
