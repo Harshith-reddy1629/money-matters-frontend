@@ -1,5 +1,5 @@
 .txn-route-container{
-    padding: 1rem;
+    padding: 2rem;
     height: calc(100dvh - 60px);
     overflow: auto;
     width: 100%;
@@ -74,4 +74,29 @@ th:nth-child(6){
         width: 10%;
         min-width: 70px; 
     }
+}
+
+.txn-filter{
+    display: flex;
+    list-style-type: none;
+    gap: 12px;
+    padding-bottom: 13px;
+}
+
+.filter{
+    padding: 6px;
+    font-weight: 600;
+    box-sizing: border-box;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.active-filter{
+    border-bottom: 3px solid blue;
+    color:blue;
+}
+
+.filter:hover{
+    opacity: 80%;
 }

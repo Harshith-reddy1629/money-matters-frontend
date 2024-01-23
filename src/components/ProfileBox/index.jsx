@@ -28,7 +28,7 @@ const ProfileBox = () => {
       )}
       {PpageStatus === "Loading" && (
         <div className="profile-box">
-          <LoaderView height="30px" />
+          <LoaderView height="50px" />
         </div>
       )}
       <LogoutBtn className="logout" />

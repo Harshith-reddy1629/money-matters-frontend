@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 30px;
   align-items: center;
+  padding: 2rem;
 }
 .failed-btn {
   background-color: transparent;

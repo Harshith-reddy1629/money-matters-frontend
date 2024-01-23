@@ -3,15 +3,17 @@ import { LuAlertTriangle } from "react-icons/lu";
 import "./index.css";
 
 const FailedView = (props) => {
+  const { tryAgain } = props;
   const onTryAgain = () => {
-    const { tryAgain } = props;
     tryAgain();
   };
 
   return (
     <div className="failed-container">
       <LuAlertTriangle size={35} />
-      <button className="failed-btn">Try Again</button>
+      <button className="failed-btn" onClick={onTryAgain}>
+        Try Again
+      </button>
     </div>
   );
 };
