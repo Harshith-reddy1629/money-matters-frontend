@@ -9,7 +9,7 @@ import "./index.css";
 const TransactionsCard = () => {
   const T = useContext(TransactionsContext);
 
-  const { TpageStatus, AllTransactions } = T;
+  const { TpageStatus, AllTransactions, fetchTxns } = T;
 
   const SV = () => (
     <div className="txns-list-container-div">
@@ -44,7 +44,7 @@ const TransactionsCard = () => {
       case "Success":
         return SV();
       case "Failed":
-        return FailedView();
+        return <FailedView tryAgain={fetchTxns} />;
 
       default:
         return null;
