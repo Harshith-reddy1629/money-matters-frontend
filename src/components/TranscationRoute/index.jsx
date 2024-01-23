@@ -10,7 +10,7 @@ import TransactionsRouteListItems from "../TransactionsRouteListItems";
 import "./index.css";
 import EmptyView from "../EmptyView";
 import LoaderView from "../LoaderView";
-import FailedView from "../Failedview";
+import FailedView from "../FailedView";
 
 function TransactionRoute() {
   const T = useContext(TransactionsContext);

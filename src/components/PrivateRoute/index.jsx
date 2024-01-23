@@ -238,7 +238,7 @@ function PrivateRoute() {
     try {
       const response = await fetch(url, options);
 
-      const result = await response.json();
+      // const result = await response.json();
 
       if (response.ok) {
         toast.success("Transaction Added");

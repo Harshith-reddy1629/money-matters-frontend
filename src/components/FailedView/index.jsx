@@ -3,8 +3,10 @@ import { LuAlertTriangle } from "react-icons/lu";
 import "./index.css";
 
 const FailedView = (props) => {
+  // eslint-disable-next-line react/prop-types
+  const { tryAgain } = props;
+
   const onTryAgain = () => {
-    const { tryAgain } = props;
     tryAgain();
   };
 
