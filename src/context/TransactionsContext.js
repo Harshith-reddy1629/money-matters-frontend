@@ -11,7 +11,7 @@ const TransactionsContext = createContext({
   CDData: [],
   fetchTxns: () => {},
   fetchSevenDaysTxns: () => {},
-  fetchCD: () => {},
+  fetchCDData: () => {},
   fetchUser: () => {},
   updateTxn: () => {},
   deleteTxn: () => {},

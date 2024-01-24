@@ -275,6 +275,10 @@ function PrivateRoute() {
           userDetails,
           CDData,
           CDStatus,
+          fetchCDData,
+          fetchTxns,
+          fetchUser,
+          fetchSevenDaysTxns,
         }}
       >
         <div className="container">

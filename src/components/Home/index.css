@@ -17,5 +17,6 @@
 @media (max-width:768px) {
     .home-container{
         padding: 1.25rem;
+        height:calc(100dvh - 155px );
     }
 }
