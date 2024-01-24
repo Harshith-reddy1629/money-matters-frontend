@@ -44,6 +44,7 @@ th:nth-child(6){
 @media (max-width:768px) {
     .txn-route-container{
         padding: 10px;
+        height: calc(100dvh - 155px);
     }
     .table{
         font-size: 12px;

@@ -3,6 +3,11 @@
   height: calc(100dvh - 60px);
   overflow-y: auto;
 }
+@media (max-width:768px) {
+  .profile-container{
+    height:calc(100dvh - 155px );
+  }
+}
 
 
 .profile-card {
@@ -60,7 +65,7 @@
 }
 @media (max-width: 575px) {
   .profile-container {
-    max-height: calc(100dvh - 200px);
+    max-height: calc(100dvh - 155px);
     overflow-y: scroll;
     padding: 10px;
   }
