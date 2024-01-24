@@ -87,6 +87,7 @@ const Login = () => {
             handleChange,
             handleBlur,
             handleSubmit,
+            isSubmitting,
           }) => (
             <form
               onChange={handleChange}
@@ -121,8 +122,13 @@ const Login = () => {
                 </p>
               </div>
               <div className="submit-btn-container">
-                <button type="submit" id="login" className="submit-btn">
-                  Log in
+                <button
+                  type="submit"
+                  id="login"
+                  disabled={isSubmitting}
+                  className="submit-btn"
+                >
+                  {isSubmitting ? "Logging" : "Log in"}
                 </button>
                 <p className="error-text">{errorMessage}</p>
               </div>

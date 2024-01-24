@@ -100,6 +100,7 @@ const Register = () => {
               handleChange,
               handleBlur,
               handleSubmit,
+              isSubmitting,
             }) => (
               <form
                 onBlur={handleBlur}
@@ -184,8 +185,13 @@ const Register = () => {
                   </p>
                 </div>
                 <div className="register-submit-btn-container">
-                  <button type="submit" id="submit" className="submit-btn">
-                    Register
+                  <button
+                    type="submit"
+                    id="submit"
+                    disabled={isSubmitting}
+                    className="submit-btn"
+                  >
+                    {isSubmitting ? "Registering" : "Register"}
                   </button>
                   <p className="error-text">{errorMessage}</p>
                 </div>
