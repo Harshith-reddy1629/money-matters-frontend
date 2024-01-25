@@ -1,6 +1,4 @@
-import { Component } from "react";
-
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import Cookies from "js-cookie";
 
@@ -32,7 +30,7 @@ const LogoutBtn = () => {
         {(close) => (
           <div className="logout-container">
             <LuLogOut color="#D97706" size={30} className="logout-logo" />
-            <div>
+            <div className="tx-cont">
               <p className="sure-text">Are you sure you want to Logout?</p>
               <p>If you click on Yes , you'll be logged out</p>
               <div>

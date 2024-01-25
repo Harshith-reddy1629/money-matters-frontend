@@ -5,6 +5,7 @@
   flex-grow: 1;
   justify-content: space-around;
   padding: 1rem 1.5rem 0px;
+  /* box-shadow: 0 0 8px rgb(0 0 0/8%) ,0 0 3px  rgb(0 0 0/8%) inset; */
 }
 
 .credit-amount-container {

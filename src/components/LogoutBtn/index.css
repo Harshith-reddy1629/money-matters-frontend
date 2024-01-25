@@ -82,3 +82,9 @@
     padding: 10px 16px;
   }
 }
+/* 
+.tx-cont{
+  display: flex;
+  flex-direction: column;
+  /* gap: 1rem; */
+} */
