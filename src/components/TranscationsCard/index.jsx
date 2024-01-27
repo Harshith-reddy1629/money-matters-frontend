@@ -19,8 +19,8 @@ const TransactionsCard = () => {
             <tr style={{ color: "#252525" }}>
               <th style={{}}>Transaction Name</th>
               <th style={{}}>Type</th>
-              <th style={{}}>Date</th>
               <th style={{}}> Amount</th>
+              <th style={{}}>Date</th>
               <th style={{}}>Update</th>
               <th style={{}}>Delete</th>
             </tr>

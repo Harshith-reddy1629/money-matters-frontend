@@ -16,11 +16,13 @@ const CreditBox = (props) => {
         </h1>
         <p className="credit-text">Credit</p>
       </div>
-      <img
-        src="https://res.cloudinary.com/reddyimgs/image/upload/v1690551063/Group_fnu7wc.png"
-        alt="credit"
-        className="credit-image"
-      />
+      <div className="credit-image-container">
+        <img
+          src="https://res.cloudinary.com/reddyimgs/image/upload/v1690551063/Group_fnu7wc.png"
+          alt="credit"
+          className="credit-image"
+        />
+      </div>
     </div>
   );
 };

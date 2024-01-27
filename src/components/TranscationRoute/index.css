@@ -1,7 +1,10 @@
 .txn-route-container{
     padding: 2rem;
     height: calc(100dvh - 60px);
-    overflow: auto;
+}
+
+.txn-table-container{
+    overflow-x: auto;
     width: 100%;
 }
 
@@ -18,18 +21,18 @@ th{
 th:nth-child(1){
     padding: 12px;
     width: 30%;
-    min-width: 180px;
+    min-width:200px;
 }
 th:nth-child(2){
     width:15%;
     min-width: 100px;
 }
-th:nth-child(3){
+th:nth-child(4){
     width: 20%;
     min-width: 150px; 
 }
-th:nth-child(4){
-    width: 15%;
+th:nth-child(3){
+width: 15%;
     min-width: 130px;
 }
 th:nth-child(5){
@@ -53,18 +56,18 @@ th:nth-child(6){
     th:nth-child(1){
         padding: 8px;
         width: 30%;
-        min-width: 130px;
+        min-width: 180px;
     }
     th:nth-child(2){
         width:15%;
         min-width: 80px;
     }
-    th:nth-child(3){
-        width: 20%;
-        min-width: 100px; 
-    }
     th:nth-child(4){
-        width: 15%;
+        width: 20%;
+        min-width: 120px; 
+    }
+    th:nth-child(3){
+    width: 15%;
         min-width: 100px;
     }
     th:nth-child(5){

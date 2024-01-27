@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [registered, setRegister] = useState(false);
-  const [errorMessage, setError] = useState("");
+  const [errorMessage, setError] = useState({});
 
   const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ const Register = () => {
   };
 
   const onFailed = (result) => {
-    setError(result.errMsg);
+    setError(result);
   };
 
   const submitForm = async (formValues) => {
@@ -81,7 +81,9 @@ const Register = () => {
               }
               if (!values.username) errors.username = "Required*";
               if (!values.name) errors.name = "Required*";
-              if (!values.password) errors.password = "Required*";
+              if (!values.password) {
+                errors.password = "Required*";
+              }
               if (!values.confirmpassword) {
                 errors.confirmpassword = "Required*";
               } else if (values.password !== values.confirmpassword) {
@@ -106,7 +108,8 @@ const Register = () => {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 onSubmit={handleSubmit}
-                className="login-form"
+                onFocus={() => setError({})}
+                className="register-form"
               >
                 <h1 className="login-heading">Register</h1>
                 <div className="register-input-container">
@@ -130,7 +133,8 @@ const Register = () => {
                     id="username"
                   />
                   <p className="error-text">
-                    {errors.username && touched.username && errors.username}
+                    {(errors.username && touched.username && errors.username) ||
+                      errorMessage.usernameError}
                   </p>
                 </div>
                 <div className="register-input-container">
@@ -142,7 +146,8 @@ const Register = () => {
                     id="email"
                   />
                   <p className="error-text">
-                    {errors.email && touched.email && errors.email}
+                    {(errors.email && touched.email && errors.email) ||
+                      errorMessage.mailError}
                   </p>
                 </div>
                 <div className="register-input-container">
@@ -173,6 +178,7 @@ const Register = () => {
                 <div className="register-input-container">
                   <label>CONFIRM PASSWORD </label>
                   <input
+                    onFocus={() => (touched.confirmpassword = true)}
                     id="confirmpassword"
                     className="register-input-element"
                     type="password"
@@ -193,7 +199,7 @@ const Register = () => {
                   >
                     {isSubmitting ? "Registering" : "Register"}
                   </button>
-                  <p className="error-text">{errorMessage}</p>
+                  <p className="error-text">{errorMessage.errMsg}</p>
                 </div>
               </form>
             )}

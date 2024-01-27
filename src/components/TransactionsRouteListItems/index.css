@@ -8,6 +8,9 @@
   gap: 20px;
   height: 60px;
 }
+.circle-sty{
+  font-size: 25px;
+}
 
 .edit-btn {
   background-color: transparent;
@@ -48,4 +51,8 @@ td:nth-child(1){
   td:nth-child(1){
     padding: 12px;
   }
+  .circle-sty{
+    font-size: 20px;
+  }
+ 
 }

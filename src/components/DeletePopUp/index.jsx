@@ -27,20 +27,18 @@ const DeletePopup = ({ id }) => {
       >
         {(close) => (
           <div className="logout-container">
-            <LuAlertTriangle
-              color="#D97706"
-              size={40}
-              className="logout-logo"
-            />
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
-            >
-              <p className="sure-text">Are you sure you want to Delete?</p>
-              <p>
-                This transaction will be deleted immediately. You can’t undo
-                this action.
-              </p>
-              <div>
+            <div className="logout-logo-container">
+              <LuAlertTriangle color="#D97706" className="logout-logo" />
+            </div>
+            <div className="logout-cont">
+              <div className="logout-txt-con">
+                <h3 className="sure-text">Are you sure you want to Delete?</h3>
+                <p>
+                  This transaction will be deleted immediately. You can’t undo
+                  this action.
+                </p>
+              </div>
+              <div className="logout-btn-cont">
                 <button
                   onClick={() => {
                     deleteTxn(id);

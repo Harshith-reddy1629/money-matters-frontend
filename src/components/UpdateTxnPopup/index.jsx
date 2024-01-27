@@ -132,11 +132,24 @@ const UpdateTxnPopup = (props) => {
 
                       <option value="Materials">Materials</option>
 
+                      <option value="Medical">Medical</option>
+
                       <option value="Books">Books</option>
 
                       <option value="Grocery">Grocery</option>
 
                       <option value="Transfer">Transfer</option>
+
+                      <option value="Bills">Bills</option>
+
+                      <option value="Travel">Travel</option>
+
+                      <option value="Fee">Fee</option>
+
+                      <option value="Rent">Rent</option>
+
+                      <option value="Salary">Salary</option>
+
                       <option value="Other"> Other</option>
                     </select>
                     <p className="error-text">

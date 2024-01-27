@@ -29,15 +29,19 @@ const LogoutBtn = () => {
       >
         {(close) => (
           <div className="logout-container">
-            <LuLogOut color="#D97706" size={30} className="logout-logo" />
-            <div className="tx-cont">
-              <p className="sure-text">Are you sure you want to Logout?</p>
-              <p>If you click on Yes , you'll be logged out</p>
-              <div>
-                <button className="logout-btn" onClick={onLogOut}>
+            <div className="logout-logo-container">
+              <LuLogOut color="#D97706" className="logout-logo" />
+            </div>
+            <div className="logout-cont">
+              <div className="logout-txt-con">
+                <h3 className="sure-text">Are you sure you want to Logout?</h3>
+                <p>If you click on Yes , you'll be logged out</p>
+              </div>
+              <div className="logout-btn-cont">
+                <button className="logout-btn " onClick={onLogOut}>
                   Yes, Logout
                 </button>
-                <button className="cancel-btn" onClick={() => close()}>
+                <button className="cancel-btn " onClick={() => close()}>
                   Cancel
                 </button>
               </div>

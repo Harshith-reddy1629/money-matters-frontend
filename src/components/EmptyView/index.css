@@ -26,13 +26,13 @@
     gap: 15px;
   }
 }
-@media (max-width: 575px) {
-  .empty-view {
-    width: 100vw;
-    flex-direction: column;
-    text-align: center;
-    gap: 15px;
-  }
+@media (max-width: 768px) {
+.no-txns-text{
+  font-size: 24px;
+}
+.empty-view-image{
+  height: 135px;
+}
 }
 
 
