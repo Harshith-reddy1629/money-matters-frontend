@@ -1,12 +1,18 @@
 // import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
+
 import Sidebar from "../Sidebar";
+
 import Navbar from "../Navbar";
+
 import Cookies from "js-cookie";
+
 import { useEffect, useState } from "react";
+
 import TransactionsContext from "../../context/TransactionsContext";
 
 import { ToastContainer, toast } from "react-toastify";
+
 import "react-toastify/dist/ReactToastify.css";
 
 import "./index.css";
@@ -14,18 +20,41 @@ import "./index.css";
 function PrivateRoute() {
   const isAuth = !Cookies.get("jwt_token");
 
+  // const [userTransactions, setUserTransactions] = useState({
+  //   status: "Loading",
+  //   AllTransactions: [],
+  // });
+
+  // const [sevenDaysTransactions, setSevenDaysTransactions] = useState({
+  //   status: "Loading",
+  //   sevenDaysTxn: [],
+  // });
+
+  // const [userdetails, setUserdetails] = useState({
+  //   status: "Loading",
+  //   CDData: [],
+  // });
+
+  // const [creditDebitData, setCreditDebitData] = useState({
+  //   status: "Loading",
+  //   userDetails: [],
+  // });
+
   const [TpageStatus, setTPageStatus] = useState("Loading");
+
   const [sevenDaysTxnStatus, setSevenDaysTxnStatus] = useState("Loading");
+
   const [PpageStatus, setPpageStatus] = useState("Loading");
+
   const [CDStatus, setCdStatus] = useState("Loading");
+
   const [AllTransactions, setAllTxns] = useState([]);
+
   const [userDetails, setUserDetails] = useState([]);
+
   const [sevenDaysTxn, setSevenDaysTxn] = useState([]);
+
   const [CDData, setCDData] = useState([]);
-
-  // const fetchUserDetails = async ()=>{
-
-  // }
 
   const fetchSevenDaysTxns = async () => {
     let url = "https://money-matters-99a1.onrender.com/seven-days-txns/";
@@ -34,8 +63,10 @@ function PrivateRoute() {
 
     let options = {
       method: "GET",
+
       headers: {
         Accept: "*/*",
+
         Authorization: `Bearer ${jwtToken}`,
       },
     };
@@ -47,6 +78,7 @@ function PrivateRoute() {
 
       if (response.ok) {
         setSevenDaysTxn(result);
+
         setSevenDaysTxnStatus("Success");
       } else {
         setSevenDaysTxnStatus("Failed");
@@ -63,8 +95,10 @@ function PrivateRoute() {
 
     let options = {
       method: "GET",
+
       headers: {
         Accept: "*/*",
+
         Authorization: `Bearer ${jwtToken}`,
       },
     };
@@ -78,7 +112,9 @@ function PrivateRoute() {
         const sortedData = result.sort(
           (a, b) => new Date(a.txnDate) - new Date(b.txnDate)
         );
+
         setAllTxns(sortedData.reverse());
+
         setTPageStatus("Success");
       } else {
         setTPageStatus("Failed");
@@ -108,10 +144,10 @@ function PrivateRoute() {
       const result = await response.json();
 
       if (response.ok) {
-        toast.success("Deleted ");
         fetchTxns();
         fetchCDData();
         fetchSevenDaysTxns();
+        toast.success("Deleted ");
       } else {
         toast.error("Error");
       }
@@ -121,6 +157,7 @@ function PrivateRoute() {
   };
 
   const fetchUser = async () => {
+    setPpageStatus("Loading");
     let url = `https://money-matters-99a1.onrender.com/get-user-details`;
 
     const jwtToken = Cookies.get("jwt_token");
@@ -138,6 +175,7 @@ function PrivateRoute() {
 
       if (response.ok) {
         setUserDetails(result);
+
         setPpageStatus("Success");
       } else {
         setPpageStatus("Failed");
@@ -170,10 +208,10 @@ function PrivateRoute() {
       const result = await response.json();
 
       if (response.ok) {
-        toast.success("Transaction Added");
         fetchTxns();
-        fetchCDData();
         fetchSevenDaysTxns();
+        fetchCDData();
+        toast.success("Transaction Updated");
       } else {
         toast.error("Error");
       }
@@ -265,8 +303,11 @@ function PrivateRoute() {
       <TransactionsContext.Provider
         value={{
           TpageStatus,
+
           PpageStatus,
+
           addTxn,
+
           AllTransactions,
           updateTxn,
           sevenDaysTxn,

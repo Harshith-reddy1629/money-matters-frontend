@@ -33,7 +33,7 @@ const Register = () => {
       const response = await fetch(URL, options);
 
       const result = await response.json();
-
+      console.log(result);
       if (response.ok) {
         onSuccess(result);
       } else {
@@ -172,7 +172,8 @@ const Register = () => {
                     id="password"
                   />
                   <p className="error-text">
-                    {errors.password && touched.password && errors.password}
+                    {(errors.password && touched.password && errors.password) ||
+                      errorMessage.passwordError}
                   </p>
                 </div>
                 <div className="register-input-container">

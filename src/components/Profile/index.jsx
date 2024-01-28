@@ -4,9 +4,11 @@ import TransactionsContext from "../../context/TransactionsContext";
 
 import "./index.css";
 import LoaderView from "../LoaderView";
+import FailedView from "../FailedView";
 
 function Profile() {
-  const { userDetails, PpageStatus } = useContext(TransactionsContext);
+  const { userDetails, PpageStatus, fetchUser } =
+    useContext(TransactionsContext);
   return (
     <div className="profile-container">
       {PpageStatus === "Success" && (
@@ -275,6 +277,7 @@ function Profile() {
           </ul>
         </div>
       )}
+      {PpageStatus === "Failed" && <FailedView tryAgain={fetchUser} />}
     </div>
   );
 }

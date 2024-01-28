@@ -6,7 +6,8 @@ import TransactionsContext from "../../context/TransactionsContext";
 import LoaderView from "../LoaderView";
 
 const ProfileBox = () => {
-  const { userDetails, PpageStatus } = useContext(TransactionsContext);
+  const { userDetails, PpageStatus, fetchUser } =
+    useContext(TransactionsContext);
   const { name, email } = userDetails;
 
   return (
@@ -30,6 +31,21 @@ const ProfileBox = () => {
         <div className="profile-box">
           <LoaderView height="50px" />
         </div>
+      )}
+      {PpageStatus === "Failed" && (
+        <button
+          onClick={fetchUser}
+          style={{
+            padding: "10px",
+            width: "100%",
+            border: "1px solid  rgb(233, 18, 18)",
+            color: " rgb(233, 18, 18)",
+            borderRadius: "5px",
+            fontWeight: "600",
+          }}
+        >
+          Try Again
+        </button>
       )}
       <LogoutBtn className="logout" />
     </div>

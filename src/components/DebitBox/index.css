@@ -22,11 +22,8 @@
   display: flex;
   align-items: center;
   color: #fe5c73;
-  margin-bottom: 0;
 }
 
 .debit-text {
   color: #718ebf;
-  margin: 0;
-  margin-left: 9px;
 }
