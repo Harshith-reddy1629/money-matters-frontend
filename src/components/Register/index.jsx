@@ -33,7 +33,6 @@ const Register = () => {
       const response = await fetch(URL, options);
 
       const result = await response.json();
-      console.log(result);
       if (response.ok) {
         onSuccess(result);
       } else {
@@ -83,6 +82,10 @@ const Register = () => {
               if (!values.name) errors.name = "Required*";
               if (!values.password) {
                 errors.password = "Required*";
+              } else if (8 > values.password.length) {
+                errors.password = "Minimum 8 characters";
+              } else if (16 < values.password.length) {
+                errors.password = "Maximum 16 characters";
               }
               if (!values.confirmpassword) {
                 errors.confirmpassword = "Required*";
