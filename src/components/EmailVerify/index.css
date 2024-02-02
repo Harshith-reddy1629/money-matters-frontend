@@ -1,0 +1,11 @@
+.verifying-container{
+    height: 100dvh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.v-image{
+    height: 100px;
+}
