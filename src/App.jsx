@@ -10,15 +10,17 @@ import AuthUser from "./components/AuthUser";
 import "./App.css";
 import NotFound from "./components/NotFound";
 import EmailVerify from "./components/EmailVerify";
+import ResendOtp from "./components/ResendOtp";
 
 function App() {
   return (
     <Routes>
+      <Route exact path="/verify/mail/:id" element={<EmailVerify />} />
+      <Route exact path="/resend-mail/:mail" element={<ResendOtp />} />
       <Route element={<AuthUser />}>
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
       </Route>
-      <Route exact path="/verify/mail/:id" element={<EmailVerify />} />
       <Route element={<PrivateRoute />}>
         <Route path="/" element={<Home />} />
         <Route path="/transactions" element={<TransactionRoute />} />

@@ -9,3 +9,13 @@
 .v-image{
     height: 100px;
 }
+
+.link-home{
+
+    text-decoration: none;
+    padding: 10px 20px ;
+    background-color: var(--theme-color);
+    color: #fff;
+border-radius: 6px;
+box-shadow: 0 0 6px rgb(0 0 0/20%);
+}

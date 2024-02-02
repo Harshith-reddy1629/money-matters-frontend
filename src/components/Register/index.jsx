@@ -218,6 +218,8 @@ const Register = () => {
             />
             <p>SUCCESSFULLY REGISTERED</p>
 
+            <p>verification link sent to your mail</p>
+
             <button
               onClick={() => navigate("/login")}
               className="successful-reg-btn"

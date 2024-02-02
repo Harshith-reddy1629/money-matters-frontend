@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import verifiedImg from "../../assets/verified.png";
 import vrfying from "../../assets/ver.png";
@@ -11,7 +11,7 @@ function EmailVerify() {
   const { id } = useParams();
   console.log(id);
 
-  const [verified, setVerified] = useState(false);
+  const [verified, setVerified] = useState(!false);
   const [err, setErr] = useState("");
 
   const verifyemail = async () => {
@@ -33,7 +33,7 @@ function EmailVerify() {
   };
 
   useEffect(() => {
-    verifyemail();
+    // verifyemail();
   });
 
   return (
@@ -65,6 +65,9 @@ function EmailVerify() {
         >
           <img className="v-image" src={verifiedImg} alt=".." />
           <h1>email is verified </h1>
+          <Link to="/" className="link-home">
+            Home
+          </Link>
         </div>
       )}
 

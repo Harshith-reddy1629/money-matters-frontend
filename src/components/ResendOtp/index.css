@@ -1,0 +1,55 @@
+.resend-container{
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.resend-input-container{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+     max-width: 350px;
+    width: 100%;
+    text-align: center;
+
+}
+
+.resend-input{
+   border-radius: 6px;
+    padding: 8px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.resend-button{
+    background-color: var(--theme-color);
+    border: 0;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
+    margin-top: 25px;
+}
+
+.v-image{
+    height: 100px;
+}
+
+.ric{
+
+    background-color: #fff;
+    padding: 24px;
+    box-shadow: 0 0 8px rgb( 0 0 0 /20%);
+    border-radius: 8px;
+}
+
+.mail-t{
+    color: var(--theme-color);
+}
+
+.mail-er-txt{
+    font-size: 12px;
+    color: rgb(245, 38, 38);
+    text-align: start;
+}
