@@ -9,6 +9,7 @@ import Profile from "./components/Profile";
 import AuthUser from "./components/AuthUser";
 import "./App.css";
 import NotFound from "./components/NotFound";
+import EmailVerify from "./components/EmailVerify";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route element={<AuthUser />}>
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
+        <Route exact path="/verify/mail/:id" element={<EmailVerify />} />
       </Route>
       <Route element={<PrivateRoute />}>
         <Route path="/" element={<Home />} />
