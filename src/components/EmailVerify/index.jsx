@@ -11,7 +11,7 @@ function EmailVerify() {
   const { id } = useParams();
   console.log(id);
 
-  const [verified, setVerified] = useState(!false);
+  const [verified, setVerified] = useState(false);
   const [err, setErr] = useState("");
 
   const verifyemail = async () => {
