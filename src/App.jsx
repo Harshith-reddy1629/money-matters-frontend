@@ -17,8 +17,8 @@ function App() {
       <Route element={<AuthUser />}>
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
-        <Route exact path="/verify/mail/:id" element={<EmailVerify />} />
       </Route>
+      <Route exact path="/verify/mail/:id" element={<EmailVerify />} />
       <Route element={<PrivateRoute />}>
         <Route path="/" element={<Home />} />
         <Route path="/transactions" element={<TransactionRoute />} />
