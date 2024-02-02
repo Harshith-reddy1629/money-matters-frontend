@@ -33,7 +33,7 @@ function EmailVerify() {
   };
 
   useEffect(() => {
-    // verifyemail();
+    verifyemail();
   });
 
   return (
