@@ -6,12 +6,16 @@ import { Formik } from "formik";
 
 import Cookies from "js-cookie";
 
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
+
 import "./index.css";
 
 const Login = () => {
   const [errorMessage, setError] = useState("");
 
   const [isVerifiedUser, setVerifiedUser] = useState(true);
+
+  const [passwordHidden, setPasswordHidden] = useState(true);
 
   const navigate = useNavigate();
 
@@ -107,7 +111,7 @@ const Login = () => {
             >
               <h1 className="login-heading">Login</h1>
               <div className="login-input-container">
-                <label>USERNAME</label>
+                <label htmlFor="username">USERNAME</label>
                 <input
                   className="login-input-element"
                   type="text"
@@ -119,13 +123,21 @@ const Login = () => {
                 </p>
               </div>
               <div className="login-input-container">
-                <label>PASSWORD </label>
-                <input
-                  className="login-input-element"
-                  type="password"
-                  placeholder="Password"
-                  id="password"
-                />
+                <label htmlFor="password">PASSWORD </label>
+                <div className="pass-container">
+                  <input
+                    className="login-input-element login-input-element-password"
+                    type={passwordHidden ? "password" : "text"}
+                    placeholder="Password"
+                    id="password"
+                  />
+                  <button
+                    className="eye-btn"
+                    onClick={() => setPasswordHidden(!passwordHidden)}
+                  >
+                    {passwordHidden ? <IoMdEye /> : <IoMdEyeOff />}
+                  </button>
+                </div>
                 <p className="error-text">
                   {errors.password && touched.password && errors.password}
                 </p>

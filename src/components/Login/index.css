@@ -74,6 +74,26 @@
   /* background-color: #e2e2e2; */
   /* border: 2px solid rgb(0 0 0/20%) ; */
   }
+  .login-input-element-password{
+    width: 100%;
+  }
+  .pass-container{
+    position: relative;
+  }
+  .eye-btn{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 2px;
+    height: 100%;
+    padding: 6px;
+    top: 0%;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    color: var(--theme-color);
+  }
   
   .login-input-container {
     display: flex;
