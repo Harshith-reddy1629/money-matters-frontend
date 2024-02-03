@@ -53,7 +53,7 @@ function EmailVerify() {
         </div>
       )}
 
-      {verified && !err && (
+      {verified && (
         <div
           style={{
             display: "flex",

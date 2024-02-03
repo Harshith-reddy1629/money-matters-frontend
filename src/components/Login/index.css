@@ -39,6 +39,11 @@
     text-decoration: none;text-align: center;
     font-size: 14px;
   }
+
+  .logger-btn:hover:not(.active-logger) {
+    background-color: #50588720;
+  }
+
   .login-form{
     display: flex;
     flex-direction: column;
@@ -55,9 +60,19 @@
   .login-input-element {
     padding: 10px;
     outline: none;
-    border: 0;
+    border: none;
+    /* border: 2px solid #e2e2e260; */
     background-color: #e2e2e2;
     border-radius: 5px;
+  }
+
+  .login-input-element:hover{
+    /* background-color: #e2e2e2; */
+  /* border: 2px solid var(--theme-color) ; */
+}
+.login-input-element:focus{
+  /* background-color: #e2e2e2; */
+  /* border: 2px solid rgb(0 0 0/20%) ; */
   }
   
   .login-input-container {
@@ -86,6 +101,14 @@
     width: 100%;
     border-radius: 6px;
     font-weight: bolder;
+  }
+  .submit-btn:hover{
+
+  filter: contrast(160%);
+
+  }
+  .submit-btn:active{
+    filter: contrast(140%);
   }
 
   .err-msg {

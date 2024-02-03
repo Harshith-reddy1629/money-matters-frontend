@@ -35,6 +35,7 @@ const ProfileBox = () => {
       {PpageStatus === "Failed" && (
         <button
           onClick={fetchUser}
+          className="try-btn"
           style={{
             padding: "10px",
             width: "100%",

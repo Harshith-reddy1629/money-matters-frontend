@@ -54,5 +54,7 @@ border-top: 1px solid #ccc;
   .user-profile{position: relative;
   width:fit-content;}
   .profile-box{display: none;padding: 6px;}
-  
+  .try-btn{
+    display: none;
+  }
 }
