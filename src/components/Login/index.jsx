@@ -11,6 +11,8 @@ import "./index.css";
 const Login = () => {
   const [errorMessage, setError] = useState("");
 
+  const [isVerifiedUser, setVerifiedUser] = useState(true);
+
   const navigate = useNavigate();
 
   const onSuccess = (result) => {
@@ -22,8 +24,13 @@ const Login = () => {
     navigate("/", { replace: true });
   };
 
-  const onFailed = (result) => {
-    setError(result.errMsg);
+  const onFailed = (result, response) => {
+    if (response.status === 401) {
+      setError(result.errMsg);
+      setVerifiedUser(false);
+    } else {
+      setError(result.errMsg);
+    }
   };
 
   const submitForm = async (formValues) => {
@@ -46,7 +53,9 @@ const Login = () => {
       if (response.ok) {
         onSuccess(result);
       } else {
-        onFailed(result);
+        console.log(response);
+        console.log(result);
+        onFailed(result, response);
       }
     } catch (error) {
       setError("Something went wrong");
@@ -122,14 +131,20 @@ const Login = () => {
                 </p>
               </div>
               <div className="submit-btn-container">
-                <button
-                  type="submit"
-                  id="login"
-                  disabled={isSubmitting}
-                  className="submit-btn"
-                >
-                  {isSubmitting ? "Logging" : "Log in"}
-                </button>
+                {isVerifiedUser ? (
+                  <button
+                    type="submit"
+                    id="login"
+                    disabled={isSubmitting}
+                    className="submit-btn"
+                  >
+                    {isSubmitting ? "Logging" : "Log in"}
+                  </button>
+                ) : (
+                  <Link className="link-resend" to="/resend-mail">
+                    Resend Mail
+                  </Link>
+                )}
                 <p className="error-text">{errorMessage}</p>
               </div>
             </form>

@@ -12,8 +12,6 @@ function ResendOtp() {
   const [err, setErr] = useState("");
   const [errmsg, setErrmsg] = useState("");
 
-  const { mail } = useParams();
-
   const mailValue = useRef(0);
 
   const resendmail = async (e) => {
@@ -21,20 +19,19 @@ function ResendOtp() {
 
     const mailinputValue = mailValue.current.value;
 
-    if (!mailinputValue || mail !== mailinputValue) {
+    if (!mailinputValue) {
       setErrmsg("Invalid input");
     } else {
-      const Url = `https://money-matters-99a1.onrender.com/resend-mail/:${mailinputValue}`;
+      const Url = `https://money-matters-99a1.onrender.com/resend-mail/${mailinputValue}`;
 
       try {
         const response = await fetch(Url);
 
+        const result = await response.json();
         if (response.ok) {
-          const result = response.json();
-
           setSent(true);
         } else {
-          setErr(result.errMsg);
+          setErr(result.errMsg.toUpperCase());
         }
       } catch (error) {
         setErr("Something went wrong");
@@ -53,8 +50,7 @@ function ResendOtp() {
             alt="..."
           />
           <p style={{ fontWeight: "600" }}>
-            Email is not verified. <br /> Resend verification mail to{" "}
-            <span className="mail-t">{mail}</span>{" "}
+            Enter your email to resend verification link to your mail
           </p>
           <form
             onSubmit={resendmail}

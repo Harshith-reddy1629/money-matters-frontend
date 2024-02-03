@@ -16,7 +16,7 @@ function App() {
   return (
     <Routes>
       <Route exact path="/verify/mail/:id" element={<EmailVerify />} />
-      <Route exact path="/resend-mail/:mail" element={<ResendOtp />} />
+      <Route exact path="/resend-mail" element={<ResendOtp />} />
       <Route element={<AuthUser />}>
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
