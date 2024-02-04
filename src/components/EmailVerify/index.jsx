@@ -77,7 +77,7 @@ function EmailVerify() {
               src={verifiedImg}
               alt=".."
             />
-            <h4>Email is verified</h4>
+            <h4>Your email is verified</h4>
             <Link
               to="/login"
               style={{ paddingInline: "30px" }}
