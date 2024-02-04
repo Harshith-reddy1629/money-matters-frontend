@@ -1,4 +1,4 @@
-// import CategorySummary from "../CategorySummary";
+import CategorySummary from "../CategorySummary";
 import ChartCard from "../ChartCard";
 import CreditDebit from "../CreditDebit";
 import TransactionsCard from "../TranscationsCard";
@@ -10,7 +10,7 @@ const Home = () => {
     <div className="home-container">
       <CreditDebit />
 
-      {/* <CategorySummary /> */}
+      <CategorySummary />
 
       <TransactionsCard />
 

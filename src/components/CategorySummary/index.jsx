@@ -1,10 +1,42 @@
 import { useContext } from "react";
 import TransactionsContext from "../../context/TransactionsContext";
+import CategoryTiles from "../CategoryTiles";
+
+import "./index.css";
+import LoaderView from "../LoaderView";
+
+const CategoryTypes = [
+  "Salary",
+  "Food",
+  "Books",
+  "Bills",
+  "Shopping",
+  "Materials",
+  "Medical",
+  "Grocery",
+  "Transfer",
+  "Fee",
+  "Rent",
+  "Other",
+];
 
 function CategorySummary() {
-  const { AllTransactions } = useContext(TransactionsContext);
+  const { TpageStatus, AllTransactions } = useContext(TransactionsContext);
+  const T = {};
+  const K = CategoryTypes.map(
+    (e) => (T[e] = AllTransactions.filter((each) => each.Category === e))
+  );
 
-  return <div>1</div>;
+  return (
+    <div className="category-container">
+      {TpageStatus === "Success" &&
+        Object.entries(T).map((e) => <CategoryTiles items={e} key={e[0]} />)}
+      {TpageStatus === "Loading" &&
+        CategoryTypes.map((e) => (
+          <LoaderView key={e} height="100px"></LoaderView>
+        ))}
+    </div>
+  );
 }
 
 export default CategorySummary;

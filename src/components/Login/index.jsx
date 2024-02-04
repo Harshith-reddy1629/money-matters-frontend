@@ -57,8 +57,6 @@ const Login = () => {
       if (response.ok) {
         onSuccess(result);
       } else {
-        console.log(response);
-        console.log(result);
         onFailed(result, response);
       }
     } catch (error) {

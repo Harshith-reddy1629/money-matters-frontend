@@ -11,19 +11,29 @@ import "./index.css";
 import EmptyView from "../EmptyView";
 import LoaderView from "../LoaderView";
 import FailedView from "../FailedView";
+import { useParams, useSearchParams } from "react-router-dom";
+import { LuUserSquare } from "react-icons/lu";
 
 function TransactionRoute() {
   const T = useContext(TransactionsContext);
+  // const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  console.log(searchParams);
 
+  const sort = searchParams.get("sort");
+  const txnType = searchParams.get("txnType");
+
+  // const { sort } = useParams();
+  console.log(txnType);
   const [activeFilter, setActive] = useState("All");
 
   const { TpageStatus, AllTransactions, fetchTxns } = T;
 
   const filteredData = AllTransactions.filter((each) => {
-    if (activeFilter === "All") {
+    if (txnType === "All") {
       return AllTransactions;
     }
-    return each.TxnType === activeFilter;
+    return each.TxnType === txnType;
   });
   const SV = () => (
     <div className="txn-table-container">
@@ -53,25 +63,46 @@ function TransactionRoute() {
 
   return (
     <div className="txn-route-container">
-      <div className="txn-filter">
-        <button
-          className={`filter ${activeFilter === "All" && "active-filter"}`}
-          onClick={() => setActive("All")}
-        >
-          All Transactions
-        </button>
-        <button
-          className={`filter ${activeFilter === "credit" && "active-filter"}`}
-          onClick={() => setActive("credit")}
-        >
-          Credit
-        </button>
-        <button
-          className={`filter ${activeFilter === "debit" && "active-filter"}`}
-          onClick={() => setActive("debit")}
-        >
-          Debit
-        </button>
+      <div className="filter-container">
+        <div className="txn-filter">
+          <button
+            className={`filter ${txnType === "All" && "active-filter"}`}
+            onClick={() => {
+              setActive("All");
+              setSearchParams({ txnType: "All" });
+            }}
+          >
+            All Transactions
+          </button>
+          <button
+            className={`filter ${txnType === "credit" && "active-filter"}`}
+            onClick={() => {
+              setActive("credit");
+              setSearchParams({ txnType: "credit" });
+            }}
+          >
+            Credit
+          </button>
+          <button
+            className={`filter ${txnType === "debit" && "active-filter"}`}
+            onClick={() => {
+              setActive("debit");
+              setSearchParams({ txnType: "debit" });
+            }}
+          >
+            Debit
+          </button>
+        </div>
+        {/* <div>
+          <div>
+            <label>SORT</label>
+            <select>
+              <option value="Date">Date</option>
+              <option value="Amount">Amount</option>
+              <option value="Date">Date</option>
+            </select>
+          </div>
+        </div> */}
       </div>
       {TpageStatus === "Loading" && (
         <div style={{ padding: "15px" }}>

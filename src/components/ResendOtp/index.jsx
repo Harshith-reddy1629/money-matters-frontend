@@ -1,12 +1,17 @@
 import { useRef, useState } from "react";
+
 import lg from "..//../assets/logo.png";
+
 import verifiedImg from "../../assets/verified.png";
 
 import erImg from "../../assets/errr.webp";
 
-import "./index.css";
 import { Link, useParams } from "react-router-dom";
+
 import { Oval } from "react-loader-spinner";
+
+import "./index.css";
+import Loader from "../Loader";
 
 function ResendOtp() {
   const [sentStatus, setSentStatus] = useState({
@@ -91,25 +96,16 @@ function ResendOtp() {
             </button>
           </form>
         </>
-        {sentStatus.status === "sending" && (
-          <div className="loader-class">
-            <Oval
-              color=" #505887"
-              secondaryColor=" #50588730"
-              strokeWidth={4}
-              height={40}
-            />
-          </div>
-        )}
+        {sentStatus.status === "sending" && <Loader />}
         {sentStatus.status === "success" && (
-          <div className="loader-class resend-success">
+          <div className=" resend-success">
             <img
               src={verifiedImg}
               alt=".."
               height={65}
               style={{ objectFit: "contain" }}
             />
-            <p>Mail Sent, Please verify and login </p>
+            <h4>Mail Sent, Please verify and login </h4>
             <Link
               className="link-resend"
               style={{ paddingInline: "50px" }}
@@ -119,54 +115,6 @@ function ResendOtp() {
             </Link>
           </div>
         )}
-        {/* {!err && !sentEmail && (
-          <>
-            <p style={{ fontWeight: "600" }}>
-              Enter your email to resend verification link to your mail
-            </p>
-            <form
-              onSubmit={resendmail}
-              style={{ display: "flex", flexDirection: "column" }}
-            >
-              <input
-                ref={mailValue}
-                id="mailinput"
-                placeholder="Confirm your mail"
-                className="resend-input"
-                type="email"
-              />
-              <p className="mail-er-txt">{errmsg}</p>
-              <button type="submit" className="resend-button">
-                {" "}
-                Resend mail
-              </button>
-            </form>
-          </>
-        )} */}
-        {/* {!err && sentEmail && (
-          <div className="resend-input-container">
-            <img
-              className="v-image"
-              style={{ objectFit: "contain" }}
-              src={verifiedImg}
-              alt=".."
-            />
-            <h2 style={{ fontFamily: "revert", letterSpacing: "1px" }}>
-              MAIL SENT{" "}
-            </h2>
-          </div>
-        )} */}
-        {/* {err && !sentEmail && (
-          <div className="resend-input-container">
-            <img
-              style={{ objectFit: "contain" }}
-              className="v-image"
-              src={erImg}
-              alt=".."
-            />
-            <h2>{err}</h2>
-          </div>
-        )} */}
       </div>{" "}
     </div>
   );

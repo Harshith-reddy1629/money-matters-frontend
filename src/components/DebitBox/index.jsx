@@ -1,14 +1,19 @@
 import { BsCurrencyRupee } from "react-icons/bs";
 
 import "./index.css";
+import { useNavigate } from "react-router-dom";
 
 const DebitBox = (props) => {
+  const navigate = useNavigate();
   const { Debitdata } = props;
 
   const { sum } = Debitdata;
 
   return (
-    <div className="credit-container">
+    <div
+      className="credit-container"
+      onClick={() => navigate("/transactions?txnType=debit")}
+    >
       <div className="credit-amount-container">
         <h1 className="debit-amount-text">
           <BsCurrencyRupee />

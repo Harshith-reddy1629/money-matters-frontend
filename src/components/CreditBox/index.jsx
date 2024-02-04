@@ -1,14 +1,20 @@
 import { BsCurrencyRupee } from "react-icons/bs";
 
 import "./index.css";
+import { useNavigate } from "react-router-dom";
 
 const CreditBox = (props) => {
   const { Creditdata } = props;
 
   const { sum } = Creditdata;
 
+  const navigate = useNavigate();
+
   return (
-    <div className="credit-container">
+    <div
+      className="credit-container"
+      onClick={() => navigate("/transactions?txnType=credit")}
+    >
       <div className="credit-amount-container">
         <h1 className="credit-amount-text">
           <BsCurrencyRupee />

@@ -6,6 +6,11 @@
   justify-content: space-around;
   /* grid-template-columns: repeat(2,1fr); */
   padding: 1rem 1.5rem 0px;
+
+}
+.credit-container:hover{
+  box-shadow: 0 0 9px rgb(0 0 0/5%);
+  scale: 102%;
 }
 
 .credit-amount-container {
