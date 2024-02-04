@@ -133,6 +133,7 @@ const Login = () => {
                   />
                   <button
                     className="eye-btn"
+                    type="button"
                     onClick={() => setPasswordHidden(!passwordHidden)}
                   >
                     {passwordHidden ? <IoMdEye /> : <IoMdEyeOff />}

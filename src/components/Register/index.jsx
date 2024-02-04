@@ -2,10 +2,12 @@ import { useState } from "react";
 import "./index.css";
 import { Formik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 
 const Register = () => {
   const [registered, setRegister] = useState(false);
   const [errorMessage, setError] = useState({});
+  const [passwordHidden, setPasswordHidden] = useState(true);
 
   const navigate = useNavigate();
 
@@ -168,12 +170,21 @@ const Register = () => {
                 </div>
                 <div className="register-input-container">
                   <label>PASSWORD </label>
-                  <input
-                    className="register-input-element"
-                    type="password"
-                    placeholder="Password"
-                    id="password"
-                  />
+                  <div className="pass-container">
+                    <input
+                      className="register-input-element login-input-element-password"
+                      type={passwordHidden ? "password" : "text"}
+                      placeholder="Password"
+                      id="password"
+                    />
+                    <button
+                      className="eye-btn"
+                      type="button"
+                      onClick={() => setPasswordHidden(!passwordHidden)}
+                    >
+                      {passwordHidden ? <IoMdEye /> : <IoMdEyeOff />}
+                    </button>
+                  </div>
                   <p className="error-text">
                     {(errors.password && touched.password && errors.password) ||
                       errorMessage.passwordError}
