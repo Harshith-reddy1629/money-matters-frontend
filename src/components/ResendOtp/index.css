@@ -53,3 +53,25 @@
     color: rgb(245, 38, 38);
     text-align: start;
 }
+
+.loader-class{
+  height:100%;
+  width:100%;
+  background-color: #e5e5e583;
+  position: absolute;
+  top: 0;
+  left: 0%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.resend-success{
+
+    background-color:#eaeaea;
+    box-shadow: 0 0 0 6px #f5f7fa;
+}

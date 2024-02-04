@@ -4,17 +4,22 @@ import { Link, useParams } from "react-router-dom";
 import verifiedImg from "../../assets/verified.png";
 import vrfying from "../../assets/ver.png";
 import verificationerror from "../../assets/Error.webp";
+import logo from "../../assets/logo.png";
 
 import "./index.css";
+import { MagnifyingGlass } from "react-loader-spinner";
 
 function EmailVerify() {
   const { id } = useParams();
-  console.log(id);
 
-  const [verified, setVerified] = useState(false);
-  const [err, setErr] = useState("");
+  const [verifyingStatus, setVerifyingStatus] = useState({
+    status: "initial",
+    errMsg: "",
+  });
 
   const verifyemail = async () => {
+    setVerifyingStatus({ status: "verifying" });
+
     const Url = `https://money-matters-99a1.onrender.com/verify-email/${id}`;
 
     try {
@@ -23,68 +28,81 @@ function EmailVerify() {
       const result = await response.json();
 
       if (response.ok) {
-        setVerified(true);
+        setVerifyingStatus({ status: "success" });
       } else {
-        setErr("Invalid ");
+        setVerifyingStatus({ status: "failed", errMsg: result.errMsg });
       }
     } catch (error) {
-      setErr("Invalid ");
+      setVerifyingStatus({
+        status: "failed",
+        errMsg: "Something went wrong",
+      });
     }
   };
 
-  useEffect(() => {
-    verifyemail();
-  });
-
   return (
     <div className="verifying-container">
-      {!verified && !err && (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "20px",
-          }}
-        >
-          <img className="v-image" src={vrfying} alt=".." />
-          <h1>Verifying...</h1>
-        </div>
-      )}
-
-      {verified && (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "20px",
-          }}
-        >
-          <img className="v-image" src={verifiedImg} alt=".." />
-          <h1>email is verified </h1>
-          <Link to="/" className="link-home">
-            Home
-          </Link>
-        </div>
-      )}
-
-      {err && !verified && (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "20px",
-          }}
-        >
-          <img className="v-image" src={verificationerror} alt=".." />
-          <h1>Invalid link address </h1>
-        </div>
-      )}
+      <div className="verifying-container-card">
+        <Link to="/">
+          <img src={logo} alt="." height={35} />
+        </Link>
+        {verifyingStatus.status === "initial" && (
+          <>
+            <h4>Click here to verify Your email</h4>
+            <button onClick={verifyemail} type="button" className="verify-btn">
+              VERIFY
+            </button>
+          </>
+        )}
+        {verifyingStatus.status === "verifying" && (
+          <>
+            <MagnifyingGlass
+              visible={true}
+              height="80"
+              width="80"
+              ariaLabel="magnifying-glass-loading"
+              wrapperStyle={{}}
+              wrapperClass="magnifying-glass-wrapper"
+              glassColor="#c0efff"
+              color="#e15b64"
+            />
+            <h4>Verifying...</h4>
+          </>
+        )}{" "}
+        {verifyingStatus.status === "success" && (
+          <>
+            <img
+              height={65}
+              style={{ objectFit: "contain" }}
+              src={verifiedImg}
+              alt=".."
+            />
+            <h4>Email is verified</h4>
+            <Link
+              to="/login"
+              style={{ paddingInline: "30px" }}
+              className="link-home"
+            >
+              Login
+            </Link>
+          </>
+        )}
+        {verifyingStatus.status === "failed" && (
+          <>
+            <img height={60} src={verificationerror} alt=".." />
+            {/* <h4>Invalid link address </h4> */}
+            <h4>{verifyingStatus.errMsg}</h4>
+            <button
+              className="verify-retry-btn"
+              onClick={() =>
+                setVerifyingStatus({ status: "initial", errMsg: "" })
+              }
+            >
+              Retry
+            </button>
+          </>
+        )}{" "}
+      </div>
     </div>
   );
 }
