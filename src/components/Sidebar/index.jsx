@@ -36,7 +36,10 @@ const Sidebar = () => {
             <HiHome className="ic" /> Dashboard
           </li>
         </Link>
-        <Link to="/transactions?txnType=All" className={isTxn}>
+        <Link
+          to="/transactions?txnType=All&sort_by=Date&sort_wise=asc&category=All&filter=All"
+          className={isTxn}
+        >
           <li className="list-item">
             <FaMoneyBillTransfer className="ic" />
             Transactions

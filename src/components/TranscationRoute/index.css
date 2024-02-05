@@ -84,7 +84,7 @@ th:nth-child(6){
     display: flex;
     list-style-type: none;
     gap: 12px;
-    padding-bottom: 13px;
+    /* padding-bottom: 13px; */
 }
 
 .filter{
@@ -107,4 +107,24 @@ th:nth-child(6){
 
 .filter:hover{
     opacity: 90%;
+}
+
+.sort-label{
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.filter-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-sector{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }

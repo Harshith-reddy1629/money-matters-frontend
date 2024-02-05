@@ -13,7 +13,11 @@ const CreditBox = (props) => {
   return (
     <div
       className="credit-container"
-      onClick={() => navigate("/transactions?txnType=credit")}
+      onClick={() =>
+        navigate(
+          "/transactions?txnType=credit&sort_by=date&sort_wise=asc&category=All&filter=All"
+        )
+      }
     >
       <div className="credit-amount-container">
         <h1 className="credit-amount-text">

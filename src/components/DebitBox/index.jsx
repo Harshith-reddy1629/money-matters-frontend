@@ -12,7 +12,11 @@ const DebitBox = (props) => {
   return (
     <div
       className="credit-container"
-      onClick={() => navigate("/transactions?txnType=debit")}
+      onClick={() =>
+        navigate(
+          "/transactions?txnType=debit&sort_by=date&sort_wise=asc&category=All&filter=All"
+        )
+      }
     >
       <div className="credit-amount-container">
         <h1 className="debit-amount-text">
