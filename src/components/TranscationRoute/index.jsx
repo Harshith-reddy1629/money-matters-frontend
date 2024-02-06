@@ -34,13 +34,13 @@ function TransactionRoute() {
 
   const filteredData = AllTransactions.filter((each) => {
     if (txnType === "All") {
-      return AllTransactions;
+      return true;
     }
     return each.TxnType === txnType;
   })
     .filter((eachT) => {
       if (category === "All") {
-        return AllTransactions;
+        return true;
       } else {
         return eachT.Category === category;
       }
@@ -55,7 +55,7 @@ function TransactionRoute() {
         if (sort_wise === "dsc") {
           return new Date(a.txnDate) - new Date(b.txnDate);
         }
-        return AllTransactions;
+        return 0;
       }
     });
   const SV = () => (

@@ -76,7 +76,7 @@ function Profile() {
                 Date of Birth
               </label>
               <div className="input-element" id="DOB" name="dob">
-                {userDetails.dateOfBirth.slice(0, -1)}
+                {userDetails.dateOfBirth.slice(0, 10)}
               </div>
             </li>
             <li className="user-bio-li-items">
