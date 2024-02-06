@@ -11,6 +11,7 @@ import "./App.css";
 import NotFound from "./components/NotFound";
 import EmailVerify from "./components/EmailVerify";
 import ResendOtp from "./components/ResendOtp";
+import Contact from "./components/Contact";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
       </Route>
       <Route path="*" element={<NotFound />} />
+      <Route path="/contact" element={<Contact />} />
     </Routes>
   );
 }

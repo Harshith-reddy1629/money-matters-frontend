@@ -10,6 +10,7 @@ const CategoryTypes = [
   "Food",
   "Books",
   "Bills",
+  "Travel",
   "Shopping",
   "Materials",
   "Medical",
@@ -18,7 +19,7 @@ const CategoryTypes = [
   "Fee",
   "Rent",
   "Other",
-];
+].sort();
 
 function CategorySummary() {
   const { TpageStatus, AllTransactions } = useContext(TransactionsContext);
