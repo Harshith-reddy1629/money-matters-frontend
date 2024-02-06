@@ -14,7 +14,7 @@ const DebitBox = (props) => {
       className="credit-container"
       onClick={() =>
         navigate(
-          "/transactions?txnType=debit&sort_by=date&sort_wise=asc&category=All&filter=All"
+          "/transactions?txnType=debit&sort_by=Date&sort_wise=asc&category=All&filter=All"
         )
       }
     >

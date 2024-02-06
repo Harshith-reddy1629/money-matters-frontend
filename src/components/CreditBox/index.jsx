@@ -15,7 +15,7 @@ const CreditBox = (props) => {
       className="credit-container"
       onClick={() =>
         navigate(
-          "/transactions?txnType=credit&sort_by=date&sort_wise=asc&category=All&filter=All"
+          "/transactions?txnType=credit&sort_by=Date&sort_wise=asc&category=All&filter=All"
         )
       }
     >
