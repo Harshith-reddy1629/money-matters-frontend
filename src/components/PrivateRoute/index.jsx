@@ -1,6 +1,8 @@
 // import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
 
+import store from "../../store/store";
+
 import Sidebar from "../Sidebar";
 
 import Navbar from "../Navbar";
@@ -16,6 +18,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import "./index.css";
+import { fetchData } from "../../Slice/slice";
+import { useDispatch } from "react-redux";
 
 function PrivateRoute() {
   const isAuth = !Cookies.get("jwt_token");
@@ -40,6 +44,8 @@ function PrivateRoute() {
   //   userDetails: [],
   // });
 
+  const dispatch = useDispatch();
+
   const [TpageStatus, setTPageStatus] = useState("Loading");
 
   const [sevenDaysTxnStatus, setSevenDaysTxnStatus] = useState("Loading");
@@ -56,8 +62,10 @@ function PrivateRoute() {
 
   const [CDData, setCDData] = useState([]);
 
+  const baseUrl = import.meta.env.VITE_MY_API;
+
   const fetchSevenDaysTxns = async () => {
-    let url = "https://money-matters-99a1.onrender.com/seven-days-txns/";
+    let url = baseUrl + "/seven-days-txns/";
 
     const jwtToken = Cookies.get("jwt_token");
 
@@ -89,7 +97,7 @@ function PrivateRoute() {
   };
 
   const fetchTxns = async () => {
-    let url = "https://money-matters-99a1.onrender.com/all-transactions/";
+    let url = baseUrl + "/all-transactions/";
 
     const jwtToken = Cookies.get("jwt_token");
 
@@ -125,7 +133,7 @@ function PrivateRoute() {
   };
 
   const deleteTxn = async (uid) => {
-    let url = `https://money-matters-99a1.onrender.com/delete-txn/${uid}/`;
+    let url = `${baseUrl}/delete-txn/${uid}/`;
 
     const jwtToken = Cookies.get("jwt_token");
 
@@ -158,7 +166,7 @@ function PrivateRoute() {
 
   const fetchUser = async () => {
     setPpageStatus("Loading");
-    let url = `https://money-matters-99a1.onrender.com/get-user-details`;
+    let url = baseUrl + `/get-user-details`;
 
     const jwtToken = Cookies.get("jwt_token");
     let options = {
@@ -188,7 +196,7 @@ function PrivateRoute() {
   const updateTxn = async (txnValues) => {
     const { _id } = txnValues;
 
-    let url = `https://money-matters-99a1.onrender.com/update-txn/${_id}/`;
+    let url = baseUrl + `/update-txn/${_id}/`;
 
     const jwtToken = Cookies.get("jwt_token");
 
@@ -223,8 +231,7 @@ function PrivateRoute() {
   const fetchCDData = async () => {
     const jwtToken = Cookies.get("jwt_token");
 
-    let url =
-      "https://money-matters-99a1.onrender.com/credit-debit-transactions/";
+    let url = baseUrl + "/credit-debit-transactions/";
 
     let options = {
       method: "GET",
@@ -259,7 +266,7 @@ function PrivateRoute() {
   };
 
   const addTxn = async (txnValues) => {
-    let url = "https://money-matters-99a1.onrender.com/add-txn/";
+    let url = baseUrl + "/add-txn/";
 
     const jwtToken = Cookies.get("jwt_token");
 
@@ -296,6 +303,7 @@ function PrivateRoute() {
     fetchSevenDaysTxns();
     fetchUser();
     fetchCDData();
+    dispatch(fetchData());
   }, []);
 
   if (!isAuth) {

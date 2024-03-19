@@ -1,0 +1,25 @@
+.total {
+  background-color: #fff;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  width: fit-content;
+  padding: 1.25rem 2rem;
+  /* box-shadow: 0 0 9px rgb(0 0 0/7%) ; */
+  box-shadow: 5px 5px 6px rgb(0 0 0/8%);
+}
+
+.total:hover {
+  box-shadow: 0 0 9px rgb(0 0 0/10%);
+  /* scale: 102%; */
+}
+
+.total-text {
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.total-amount-container {
+  margin-bottom: 10px;
+}

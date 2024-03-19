@@ -139,7 +139,7 @@ function TransactionRoute() {
               placeholder="Select Transaction Type"
               className="add-txn-input"
               defaultValue={category}
-              value={category}
+              // value={category}
               onChange={(e) =>
                 setSearchParams({
                   sort_by,
@@ -178,7 +178,7 @@ function TransactionRoute() {
             <label className="sort-label">Sort </label>
             <select
               defaultValue={sort_by}
-              value={sort_by}
+              // value={sort_by}
               onChange={(e) =>
                 setSearchParams({
                   filter,
@@ -199,7 +199,7 @@ function TransactionRoute() {
             {sort_by === "Amount" && (
               <select
                 defaultValue={sort_wise}
-                value={sort_wise}
+                // value={sort_wise}
                 onChange={(e) =>
                   setSearchParams({
                     filter,
@@ -218,7 +218,7 @@ function TransactionRoute() {
             {sort_by === "Date" && (
               <select
                 defaultValue={sort_wise}
-                value={sort_wise}
+                // value={sort_wise}
                 onChange={(e) =>
                   setSearchParams({
                     filter,

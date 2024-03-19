@@ -11,9 +11,13 @@ import { useContext } from "react";
 import TransactionsContext from "../../context/TransactionsContext";
 
 import "./index.css";
+import { useParams, useSearchParams } from "react-router-dom";
 
 const AddTxnPopUp = () => {
   const cntxt = useContext(TransactionsContext);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const filteredCategory = searchParams.get("category");
 
   const { addTxn } = cntxt;
 
@@ -35,7 +39,7 @@ const AddTxnPopUp = () => {
               initialValues={{
                 txnName: "",
                 TxnType: "credit",
-                Category: "Food",
+                Category: filteredCategory ?? "Bills",
                 Amount: "",
                 txnDate: "",
               }}
@@ -107,6 +111,7 @@ const AddTxnPopUp = () => {
                       id="Category"
                       placeholder="Select Transaction Type"
                       className="add-txn-input"
+                      defaultValue={filteredCategory}
                     >
                       <option value="Bills">Bills</option>
                       <option value="Books">Books</option>

@@ -12,12 +12,16 @@ import NotFound from "./components/NotFound";
 import EmailVerify from "./components/EmailVerify";
 import ResendOtp from "./components/ResendOtp";
 import Contact from "./components/Contact";
+import ChangePasword from "./components/ChangePassword";
+import ForgotPassword from "./components/ForgotPassword";
 
 function App() {
   return (
     <Routes>
       <Route exact path="/verify/mail/:id" element={<EmailVerify />} />
       <Route exact path="/resend-mail" element={<ResendOtp />} />
+      <Route exact path="/forgot-password" element={<ForgotPassword />} />
+      <Route exact path="/change-password/:id" element={<ChangePasword />} />
       <Route element={<AuthUser />}>
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
@@ -26,9 +30,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/transactions" element={<TransactionRoute />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/contact" element={<Contact />} />
       </Route>
       <Route path="*" element={<NotFound />} />
-      <Route path="/contact" element={<Contact />} />
     </Routes>
   );
 }

@@ -2,6 +2,7 @@
   padding: 30px;
   height: calc(100dvh - 60px);
   overflow-y: auto;
+  
 }
 @media (max-width:768px) {
   .profile-container{

@@ -139,8 +139,9 @@ const Login = () => {
                 </div>
                 <p className="error-text">
                   {errors.password && touched.password && errors.password}
-                </p>
+                </p>{" "}
               </div>
+
               <div className="submit-btn-container">
                 {isVerifiedUser ? (
                   <button
@@ -156,7 +157,11 @@ const Login = () => {
                     Resend Mail
                   </Link>
                 )}
-                <p className="error-text">{errorMessage}</p>
+                <p className="error-text">{errorMessage}</p>{" "}
+                <Link to="/forgot-password" style={{ fontSize: "12px" }}>
+                  {" "}
+                  Forgot Password?
+                </Link>
               </div>
             </form>
           )}

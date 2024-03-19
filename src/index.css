@@ -1,18 +1,18 @@
-:root{
+
+:root {
   font-family: sans-serif;
-  background-color:#f5f7fa;
-  --theme-color : #505887;
-  --toastify-color-light:#f5f5f5;
+  background-color: #f5f7fa;
+  --theme-color: #505887;
+  --toastify-color-light: #f5f5f5;
 }
 
-
-*{
+* {
   box-sizing: border-box;
   padding: 0px;
   margin: 0px;
 }
 
-button{
+button {
   cursor: pointer;
 }
 

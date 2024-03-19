@@ -54,54 +54,61 @@ function Contact() {
     }
   };
   return (
-    <form
-      ref={form}
-      className="contact-form"
-      onFocus={() =>
-        setError({
-          nameError: " ",
-          mailError: " ",
-          messageError: " ",
-        })
-      }
-      onSubmit={sendEmail}
-    >
-      <div className="input-container">
-        <ToastContainer />
-        <label htmlFor="name">Name</label>
+    <div className="contact-container">
+      <h2>GET IN TOUCH</h2>
+      <form
+        ref={form}
+        className="contact-form"
+        onFocus={() =>
+          setError({
+            nameError: " ",
+            mailError: " ",
+            messageError: " ",
+          })
+        }
+        onSubmit={sendEmail}
+      >
+        <div className="input-container">
+          <ToastContainer />
+          <label htmlFor="name">Name</label>
+          <input
+            className="message-input"
+            id="name"
+            type="text"
+            name="from_name"
+            placeholder="Your name"
+          />
+          <p className="error-text">{errorForm.nameError}</p>
+        </div>
+        <div className="input-container">
+          <label htmlFor="mail">Email</label>
+          <input
+            className="message-input"
+            id="mail"
+            type="mail"
+            name="from_email"
+            placeholder="Your mail"
+          />
+          <p className="error-text">{errorForm.mailError}</p>
+        </div>
+        <div className="input-container">
+          <label htmlFor="message">Message</label>
+          <textarea
+            rows="8"
+            id="message"
+            name="message"
+            placeholder="Message"
+            className="message-input"
+          />
+          <p className="error-text">{errorForm.messageError}</p>
+        </div>
         <input
-          className="message-input"
-          id="name"
-          type="text"
-          name="from_name"
-          placeholder="Your name"
+          className="message-input submit-btn "
+          type="submit"
+          value="Send"
         />
-        <p className="error-text">{errorForm.nameError}</p>
-      </div>
-      <div className="input-container">
-        <label htmlFor="mail">Email</label>
-        <input
-          className="message-input"
-          id="mail"
-          type="mail"
-          name="from_email"
-          placeholder="Your mail"
-        />
-        <p className="error-text">{errorForm.mailError}</p>
-      </div>
-      <div className="input-container">
-        <label htmlFor="message">Message</label>
-        <textarea
-          rows="8"
-          id="message"
-          name="message"
-          placeholder="Message"
-          className="message-input"
-        />
-        <p className="error-text">{errorForm.messageError}</p>
-      </div>
-      <input className="message-input submit-btn " type="submit" value="Send" />
-    </form>
+      </form>
+    </div>
   );
 }
 

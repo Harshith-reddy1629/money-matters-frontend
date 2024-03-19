@@ -11,6 +11,7 @@ import { useContext } from "react";
 import TransactionsContext from "../../context/TransactionsContext";
 
 import "./index.css";
+import TotalCard from "../TotalCard";
 
 const CreditDebit = () => {
   const { CDData, CDStatus, fetchCDData } = useContext(TransactionsContext);
@@ -19,9 +20,12 @@ const CreditDebit = () => {
 
   const successView = () => {
     return (
-      <div className="creditdebit-container">
-        <CreditBox Creditdata={CreditAmount} />
-        <DebitBox Debitdata={debitAmount} />
+      <div>
+        <TotalCard data={CDData} />
+        <div className="creditdebit-container">
+          <CreditBox Creditdata={CreditAmount} />
+          <DebitBox Debitdata={debitAmount} />
+        </div>
       </div>
     );
   };

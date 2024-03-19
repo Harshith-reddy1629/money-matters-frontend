@@ -1,6 +1,11 @@
 .txn-route-container{
-    padding: 2rem;
+      padding: 1rem 2rem 8px;
     height: calc(100dvh - 60px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* flex-grow: 1; */
 }
 
 .txn-table-container{
